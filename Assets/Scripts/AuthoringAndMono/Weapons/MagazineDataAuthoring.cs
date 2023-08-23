@@ -8,6 +8,7 @@ public partial struct MagazineData : IComponentData
 {
     //public bool mag_fixed;
     public int bullets_in_clip;
+    public int max_bullets_in_clip;
     //public Entity mag_joint_entity;
     public Entity last_bullet_0;
     public Entity last_bullet_1;
@@ -33,7 +34,9 @@ public class MagazineDataAuthoring : MonoBehaviour
 
             AddComponent(new MagazineData
             {
+                //add max_bullet_in_clip in authoring for custom clip fill
                 bullets_in_clip = authoring.bullets_in_clip,
+                max_bullets_in_clip = authoring.bullets_in_clip,
                 last_bullet_0 = GetEntity(authoring.last_bullet_0),
                 last_bullet_1 = GetEntity(authoring.last_bullet_1),
             });

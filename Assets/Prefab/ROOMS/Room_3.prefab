@@ -5152,6 +5152,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1563820998745126343, guid: 786780606fe668d4b934c9875e51c121,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563820998745126343, guid: 786780606fe668d4b934c9875e51c121,
+        type: 3}
       propertyPath: m_Material.m_BelongsToCategories.m_Value.Category00
       value: 0
       objectReference: {fileID: 0}
@@ -5484,16 +5489,21 @@ PrefabInstance:
         type: 3}
       propertyPath: on_visual_GB
       value: 
-      objectReference: {fileID: 5374779477008824567}
+      objectReference: {fileID: 803885399818374233}
     - target: {fileID: 1874738626857672236, guid: 786780606fe668d4b934c9875e51c121,
         type: 3}
       propertyPath: off_visual_GB
       value: 
-      objectReference: {fileID: 7054040596266191483}
+      objectReference: {fileID: 2329496228725145301}
     - target: {fileID: 1874738626857672236, guid: 786780606fe668d4b934c9875e51c121,
         type: 3}
       propertyPath: action_speed.y
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2084298476809907625, guid: 786780606fe668d4b934c9875e51c121,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2084298476809907625, guid: 786780606fe668d4b934c9875e51c121,
         type: 3}
@@ -5524,7 +5534,7 @@ PrefabInstance:
     - target: {fileID: 5255667897903543668, guid: 786780606fe668d4b934c9875e51c121,
         type: 3}
       propertyPath: m_Name
-      value: Terminal
+      value: Terminal_1
       objectReference: {fileID: 0}
     - target: {fileID: 5255667897903543668, guid: 786780606fe668d4b934c9875e51c121,
         type: 3}
@@ -5557,9 +5567,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 786780606fe668d4b934c9875e51c121, type: 3}
+--- !u!1 &803885399818374233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2084298476809907625, guid: 786780606fe668d4b934c9875e51c121,
+    type: 3}
+  m_PrefabInstance: {fileID: 1714485974532645360}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1651877063643970069 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 83235809258724325, guid: 786780606fe668d4b934c9875e51c121,
+    type: 3}
+  m_PrefabInstance: {fileID: 1714485974532645360}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2329496228725145301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4007952510192869157, guid: 786780606fe668d4b934c9875e51c121,
     type: 3}
   m_PrefabInstance: {fileID: 1714485974532645360}
   m_PrefabAsset: {fileID: 0}
@@ -5749,11 +5771,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skorpion
       objectReference: {fileID: 0}
-    - target: {fileID: 734322684439557842, guid: e2b2d4c2ce8dac54db3586e70fe677e3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4915020209596497959, guid: e2b2d4c2ce8dac54db3586e70fe677e3,
         type: 3}
       propertyPath: m_RootOrder
@@ -5809,10 +5826,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 6985047815522012191, guid: e2b2d4c2ce8dac54db3586e70fe677e3,
+    - target: {fileID: 6852893223187236554, guid: e2b2d4c2ce8dac54db3586e70fe677e3,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6608,7 +6625,7 @@ PrefabInstance:
     - target: {fileID: 5255667897903543668, guid: 786780606fe668d4b934c9875e51c121,
         type: 3}
       propertyPath: m_Name
-      value: Terminal
+      value: Terminal_2
       objectReference: {fileID: 0}
     - target: {fileID: 5255667897903543668, guid: 786780606fe668d4b934c9875e51c121,
         type: 3}

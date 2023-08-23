@@ -161,11 +161,16 @@ public partial class XRInputsActionSystem : SystemBase
 
                 ItemData item = entityManager.GetComponentData<ItemData>(item_entity);
 
+
+                Debug.Log(item.item_type_id);
+
                 if (item.item_type_id == 1 || item.item_type_id == 4)
                 {
 
-                            //eject mag
-                            if (entityManager.GetComponentData<FirearmData>(item_entity).loaded_magazine != Entity.Null)
+
+                    Debug.Log("ejectA");
+                    //eject mag
+                    if (entityManager.GetComponentData<FirearmData>(item_entity).loaded_magazine != Entity.Null)
                         _eject_mag(item_entity, entityManager.GetComponentData<FirearmData>(item_entity).loaded_magazine);
 
                 }
@@ -194,12 +199,12 @@ public partial class XRInputsActionSystem : SystemBase
 
                     ItemData item = entityManager.GetComponentData<ItemData>(item_entity);
 
-                    //Debug.Log(item.item_type_id);
+                    Debug.Log(item.item_type_id);
 
                     if (item.item_type_id == 1 || item.item_type_id == 4)
                     {
 
-                        Debug.Log("eject mag");
+                        Debug.Log("ejectB");
                         if (entityManager.GetComponentData<FirearmData>(item_entity).loaded_magazine != Entity.Null)
                             _eject_mag(item_entity, entityManager.GetComponentData<FirearmData>(item_entity).loaded_magazine);
 
@@ -644,7 +649,7 @@ public partial class XRInputsActionSystem : SystemBase
         FirearmData new_firearm_data;
 
         //A CHANGER MARCHE QUE QUAND CHARGER FULL
-        switch (entityManager.GetComponentData<MagazineData>(mag).bullets_in_clip)
+        switch (entityManager.GetComponentData<MagazineData>(mag).max_bullets_in_clip)
         {
 
             //USP

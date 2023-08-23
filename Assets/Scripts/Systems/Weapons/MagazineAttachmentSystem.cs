@@ -92,63 +92,6 @@ public partial class MagazineAttachmentSystem : SystemBase
                     ecb.RemoveComponent<Disabled>(entityManager.GetComponentData<FirearmData>(mag_attach_data.firearm_entity).chamber_bullet);
 
 
-                if(mag_data.bullets_in_clip > 0)
-                {
-                    
-                    //inverser le moteur mais super chiant a faire
-
-                    /*
-                    float3 axisInB = math.normalize(Vector3.right);
-
-                    RigidTransform aFromB = math.mul(math.inverse(Math.DecomposeRigidBodyTransform(entityManager.GetComponentData<LocalToWorld>(mag_attach_data.firearm_entity).Value)), Math.DecomposeRigidBodyTransform(entityManager.GetComponentData<LocalToWorld>(mag_attach_data.firearm_entity).Value));
-                    float3 axisInA = math.mul(aFromB.rot, axisInB); //motor axis relative to bodyA
-
-                    RigidTransform bFromA = math.mul(math.inverse(Math.DecomposeRigidBodyTransform(entityManager.GetComponentData<LocalToWorld>(mag_attach_data.firearm_entity).Value)), Math.DecomposeRigidBodyTransform(entityManager.GetComponentData<LocalToWorld>(mag_attach_data.firearm_entity).Value));
-                    float3 PositionInConnectedEntity = math.transform(bFromA, new Vector3(0, 0.079f, 0.0870292f)); //position of motored body relative to Connected Entity in world space
-                    float3 AxisInConnectedEntity = axisInB; //motor axis in Connected Entity space
-
-                    // Always calculate the perpendicular axes
-                    Math.CalculatePerpendicularNormalized(axisInA, out var perpendicularAxisLocal, out _);
-                    float3 PerpendicularAxisInConnectedEntity = math.mul(bFromA.rot, perpendicularAxisLocal); //perp motor axis in Connected Entity space
-
-
-                    ComponentType[] componentTypes =
-                        {
-                        typeof(PhysicsConstrainedBodyPair),
-                        typeof(PhysicsJoint)
-                        };
-
-                    var motor = PhysicsJoint.CreateLinearVelocityMotor(
-                    new BodyFrame
-                    {
-                        Axis = axisInA,
-                        PerpendicularAxis = perpendicularAxisLocal,
-                        Position = PositionInConnectedEntity
-                    },
-                    new BodyFrame
-                    {
-                        Axis = AxisInConnectedEntity,
-                        PerpendicularAxis = PerpendicularAxisInConnectedEntity,
-                        Position = PositionInConnectedEntity
-                    },
-                    10,
-                    2f
-                    );
-
-
-                    //motor.SetImpulseEventThresholdAllConstraints(0.2f);
-
-                    Entity motorEntity = entityManager.CreateEntity(componentTypes);
-
-
-                    entityManager.SetComponentData(motorEntity, new PhysicsConstrainedBodyPair(mag_attach_data.firearm_entity, mag_attach_data.mag_entity, false));
-                    entityManager.SetComponentData(motorEntity, motor);
-
-                    ecb.AddSharedComponent(motorEntity, new PhysicsWorldIndex());
-                    */
-
-
-                }
 
                 ecb.SetComponent<FirearmData>(mag_attach_data.firearm_entity, new_firearm_data);
 
@@ -181,6 +124,23 @@ public partial class MagazineAttachmentSystem : SystemBase
 
     public void loaded_joint(Entity body_a, Entity body_b)
     {
+
+
+        if (entityManager.GetComponentData<MagazineData>(body_a).bullets_in_clip > 0)
+        {
+            WeaponSliderData slider_data = entityManager.GetComponentData<WeaponSliderData>(entityManager.GetComponentData<FirearmData>(body_b).slider_entity);
+
+            var new_motor = PhysicsJoint.CreateLinearVelocityMotor(
+                   slider_data.Afromjoint,
+                   slider_data.Bfromjoint,
+                   slider_data.motor_target_speed,
+                   slider_data.motor_max_impulse_applided
+               );
+
+            Debug.Log(slider_data.motor_target_speed);
+
+            ecb.SetComponent<PhysicsJoint>(slider_data.motor_entity, new_motor);
+        }
 
 
         PhysicsJoint snap_joint;

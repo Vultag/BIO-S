@@ -152,25 +152,11 @@ public partial class LoadMagOnColSystem : SystemBase
                 }
             }
 
-            
-            if (entityManager.GetComponentData<MagazineData>(triggerJob.mag_entity.Value).bullets_in_clip > 0)
-            {
-                WeaponSliderData slider_data = entityManager.GetComponentData<WeaponSliderData>(entityManager.GetComponentData<FirearmData>(entityA).slider_entity);
 
-                var new_motor = PhysicsJoint.CreateLinearVelocityMotor(
-                       slider_data.Afromjoint,
-                       slider_data.Bfromjoint,
-                       slider_data.motor_target_speed,
-                       slider_data.motor_max_impulse_applided
-                   );
 
-                Debug.Log(slider_data.motor_target_speed);
 
-                ecb.SetComponent<PhysicsJoint>(slider_data.motor_entity, new_motor);
-            }
-            
 
-            switch (entityManager.GetComponentData<MagazineData>(triggerJob.mag_entity.Value).bullets_in_clip)
+            switch (entityManager.GetComponentData<MagazineData>(triggerJob.mag_entity.Value).max_bullets_in_clip)
             {
 
                 case 10: //USP
@@ -355,6 +341,24 @@ public partial class LoadMagOnColSystem : SystemBase
 
                     //ecb = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(World.Unmanaged);
                     //ecbBS = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(World.Unmanaged);
+
+
+                    if (entityManager.GetComponentData<MagazineData>(triggerJob.mag_entity.Value).bullets_in_clip > 0)
+                    {
+                        WeaponSliderData slider_data = entityManager.GetComponentData<WeaponSliderData>(entityManager.GetComponentData<FirearmData>(entityA).slider_entity);
+
+                        var new_motor = PhysicsJoint.CreateLinearVelocityMotor(
+                               slider_data.Afromjoint,
+                               slider_data.Bfromjoint,
+                               slider_data.motor_target_speed,
+                               slider_data.motor_max_impulse_applided
+                           );
+
+                        Debug.Log(slider_data.motor_target_speed);
+
+                        ecb.SetComponent<PhysicsJoint>(slider_data.motor_entity, new_motor);
+                    }
+
 
 
                     ecb.RemoveComponent<MagazineChamberTag>(triggerJob.item_entity.Value);

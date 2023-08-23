@@ -158,7 +158,7 @@ public partial class ItemSystem : SystemBase
                         new_mag_data = entityManager.GetComponentData<MagazineData>(mag);
 
                         ///REACTIVE UNLOADING THE MAG
-                        new_mag_data.bullets_in_clip -= 1;
+                        ///new_mag_data.bullets_in_clip -= 1;
 
                         entityManager.SetComponentData<MagazineData>(mag, new_mag_data);
 
@@ -414,8 +414,11 @@ public partial class ItemSystem : SystemBase
                 ecb.AddComponent(bullet_impact, new Parent { Value = hit.Entity });
 
 
+                Debug.Log(hit.SurfaceNormal);
+
                 ecb.SetComponent<Translation>(bullet_impact, new Translation() { Value = matrix4x4.inverse.MultiplyPoint3x4(hit.Position) });
-                ecb.SetComponent<Rotation>(bullet_impact, new Rotation() { Value = Quaternion.Inverse((entityManager.GetComponentData<LocalToWorld>(hit.Entity).Rotation) * Quaternion.FromToRotation(Vector3.up, hit.SurfaceNormal) * Quaternion.Euler(90, 0, 0)) });
+                //ecb.SetComponent<Rotation>(bullet_impact, new Rotation() { Value = Quaternion.Inverse((entityManager.GetComponentData<LocalToWorld>(hit.Entity).Rotation) * Quaternion.FromToRotation(Vector3.left, Vector3.forward) * Quaternion.Euler(90, 0, 0)) });
+                ecb.SetComponent<Rotation>(bullet_impact, new Rotation() { Value = Quaternion.Inverse((entityManager.GetComponentData<LocalToWorld>(hit.Entity).Rotation) * Quaternion.FromToRotation(-hit.SurfaceNormal, hit.SurfaceNormal) * Quaternion.Euler(90, 0, 0)) });
 
                 ecb.AddComponent(bullet_impact, new LocalToParent {  });
 
