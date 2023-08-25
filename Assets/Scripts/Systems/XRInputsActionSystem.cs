@@ -386,7 +386,7 @@ public partial class XRInputsActionSystem : SystemBase
 
                         if (entityManager.GetComponentData<GrabDetectData>(fantomedata.hand_root).grabbing == false)
                         {
-                            Debug.Log(left_hand_trigger.ReadValue<float>());
+                            //Debug.Log(left_hand_trigger.ReadValue<float>());
                             trans.LocalRotation = Quaternion.Slerp(Quaternion.Euler(fantomedata.open_hand_rot), Quaternion.Euler(fantomedata.close_hand_rot), left_hand_trigger.ReadValue<float>());
                         }
                         //ici faire une rot pour chaque item?

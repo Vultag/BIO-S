@@ -122,7 +122,7 @@ public partial class GrabOnTriggerSystem : SystemBase
 
             ecb = SystemAPI.GetSingleton<EndSimulationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(World.Unmanaged);
 
-            Debug.Log("grab");
+            //Debug.Log("grab");
 
 
             ecb.RemoveComponent<GrabDetectTag>(triggerJob.detect_entity.Value);
@@ -140,14 +140,36 @@ public partial class GrabOnTriggerSystem : SystemBase
 
                 var item_child_Array = item_child_buffer.AsNativeArray();
 
+
                 if (HasBuffer<LinkedEntityGroup>(SystemAPI.GetSingleton<RoomManagerData>().room_0_instance))
                 {
                     var instance_0_buffer = SystemAPI.GetBuffer<LinkedEntityGroup>(SystemAPI.GetSingleton<RoomManagerData>().room_0_instance);
                     var instance_0_buffer_Array = instance_0_buffer.AsNativeArray();
 
+
+
                     for (var i = 0; i < instance_0_buffer_Array.Length;)
                     {
+
                         bool element_removed = false;
+
+                        //essaie fail de fix le fait de traverser les buffer de room dans deletes les parties de pistol
+                        /*
+                        if (instance_0_buffer_Array[i].Value.Index == entityManager.GetComponentData<WeaponSliderData>(entityManager.GetComponentData<FirearmData>(entityB).slider_entity).motor_entity.Index)
+                        {
+                            Debug.Log("test2");
+                            instance_0_buffer.RemoveAt(i);
+                            element_removed = true;
+                        }
+                        
+                        if (instance_0_buffer_Array[i].Value.Index == entityManager.GetComponentData<FirearmData>(entityB).slider_entity.Index)
+                        {
+                            Debug.Log("test3");
+                            instance_0_buffer.RemoveAt(i);
+                            element_removed = true;
+                        }
+                        */
+                        
 
                         if (instance_0_buffer_Array[i].Value.Index == entityB.Index)
                         {
@@ -159,10 +181,9 @@ public partial class GrabOnTriggerSystem : SystemBase
 
                         foreach (var item_child in item_child_Array)
                         {
-
+    
                             if (instance_0_buffer_Array[i].Value == item_child.Value)
                             {
-
                                 instance_0_buffer.RemoveAt(i);
                                 element_removed = true;
 
@@ -193,11 +214,13 @@ public partial class GrabOnTriggerSystem : SystemBase
 
                         }
 
+
                         foreach (var item_child in item_child_Array)
                         {
 
                             if (instance_1_2_buffer_Array[i].Value == item_child.Value)
                             {
+          
                                 instance_1_2_buffer.RemoveAt(i);
                                 element_removed = true;
 
@@ -256,12 +279,15 @@ public partial class GrabOnTriggerSystem : SystemBase
             var grabdetect_from_entity = GetComponentLookup<GrabDetectData>(false);
             var grabbable_from_entity = GetComponentLookup<ItemData>(false);
 
+            Debug.Log("test1");
 
             //check if the item is stored and if so, break the store join ect...
             if (entityManager.HasComponent<StorableData>(entityB))
             {
-                if(entityManager.GetComponentData<StorableData>(entityB).storing_entity != Entity.Null)
+                Debug.Log("test2");
+                if (entityManager.GetComponentData<StorableData>(entityB).storing_entity != Entity.Null)
                 {
+                    Debug.Log("test3");
                     HasToExitData exit_data = new HasToExitData();
                     exit_data.physics_layer = 4;
                     exit_data.shape_size = entityManager.GetComponentData<SlotData>(entityManager.GetComponentData<StorableData>(entityB).storing_entity).shape_size;

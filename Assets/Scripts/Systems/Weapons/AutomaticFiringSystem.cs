@@ -71,7 +71,7 @@ public partial class AutomaticFiringSystem : SystemBase
                         new_mag_data = entityManager.GetComponentData<MagazineData>(mag);
 
                         //REACTIVE
-                        new_mag_data.bullets_in_clip -= 1;
+                        ///new_mag_data.bullets_in_clip -= 1;
 
                         entityManager.SetComponentData<MagazineData>(mag, new_mag_data);
 

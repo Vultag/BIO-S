@@ -109,13 +109,14 @@ public partial class MagazineAttachmentSystem : SystemBase
             else if (Vector3.Distance(gun_pos,mag_pos)>0.1503f)
             {
 
-                //Debug.Log("mag break");
+                Debug.Log("mag break");
                 ecb.DestroyEntity(entityManager.GetComponentData<MagazineData>(entity).disable_col_joint);
                 ecb.DestroyEntity(mag_attach_data.mag_joint_entity);
                 ecb.AddComponent<MagazineTag>(mag_attach_data.mag_entity);
                 ecb.AddComponent<MagazineChamberTag>(mag_attach_data.firearm_entity);
                 ecb.RemoveComponent<MagazineAttachmentData>(mag_attach_data.mag_entity);
                 ecb.AddComponent<StorableTag>(mag_attach_data.mag_entity);
+                ecb.AddComponent<StorableData>(mag_attach_data.mag_entity);
             }
 
 
@@ -137,7 +138,7 @@ public partial class MagazineAttachmentSystem : SystemBase
                    slider_data.motor_max_impulse_applided
                );
 
-            Debug.Log(slider_data.motor_target_speed);
+            //Debug.Log(slider_data.motor_target_speed);
 
             ecb.SetComponent<PhysicsJoint>(slider_data.motor_entity, new_motor);
         }

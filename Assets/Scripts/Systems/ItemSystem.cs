@@ -43,6 +43,7 @@ public partial class ItemSystem : SystemBase
 
     protected override void OnStartRunning()
     {
+        /*
         ///Get all sliders and assign full WeaponSliderData
         Entities.WithoutBurst()
         .ForEach((Entity entity, ref PhysicsJoint motor, in Parent parent) =>//, ref WeaponSliderData slider_data) =>
@@ -77,7 +78,7 @@ public partial class ItemSystem : SystemBase
 
 
         }).Run();
-
+        */
     }
 
     protected override void OnUpdate()
@@ -345,7 +346,9 @@ public partial class ItemSystem : SystemBase
 
 
                 ecb.SetComponent<Translation>(bullet_impact, new Translation() { Value = matrix4x4.inverse.MultiplyPoint3x4(hit.Position) });
-                ecb.SetComponent<Rotation>(bullet_impact, new Rotation() { Value = Quaternion.Inverse((entityManager.GetComponentData<LocalToWorld>(hit.Entity).Rotation) * Quaternion.FromToRotation(Vector3.up, hit.SurfaceNormal) * Quaternion.Euler(90, 0, 0)) });
+                ///ecb.SetComponent<Rotation>(bullet_impact, new Rotation() { Value = Quaternion.Inverse((entityManager.GetComponentData<LocalToWorld>(hit.Entity).Rotation) * Quaternion.FromToRotation(Vector3.up, hit.SurfaceNormal) * Quaternion.Euler(90, 0, 0)) });
+                ecb.SetComponent<Rotation>(bullet_impact, new Rotation() { Value = Quaternion.Inverse(entityManager.GetComponentData<LocalToWorld>(hit.Entity).Rotation) * Quaternion.Euler(hit.SurfaceNormal.z * 90 + 90 - hit.SurfaceNormal.x * 90, hit.SurfaceNormal.y * 90 + hit.SurfaceNormal.x * 90, 0) });
+
 
                 ecb.AddComponent(bullet_impact, new LocalToParent { });
 
@@ -414,11 +417,14 @@ public partial class ItemSystem : SystemBase
                 ecb.AddComponent(bullet_impact, new Parent { Value = hit.Entity });
 
 
-                Debug.Log(hit.SurfaceNormal);
 
                 ecb.SetComponent<Translation>(bullet_impact, new Translation() { Value = matrix4x4.inverse.MultiplyPoint3x4(hit.Position) });
-                //ecb.SetComponent<Rotation>(bullet_impact, new Rotation() { Value = Quaternion.Inverse((entityManager.GetComponentData<LocalToWorld>(hit.Entity).Rotation) * Quaternion.FromToRotation(Vector3.left, Vector3.forward) * Quaternion.Euler(90, 0, 0)) });
-                ecb.SetComponent<Rotation>(bullet_impact, new Rotation() { Value = Quaternion.Inverse((entityManager.GetComponentData<LocalToWorld>(hit.Entity).Rotation) * Quaternion.FromToRotation(-hit.SurfaceNormal, hit.SurfaceNormal) * Quaternion.Euler(90, 0, 0)) });
+                
+                Vector3 hit_normal = new Vector3(hit.SurfaceNormal.x, hit.SurfaceNormal.y, hit.SurfaceNormal.z);
+
+                //Debug.Log(hit_normal);
+
+                ecb.SetComponent<Rotation>(bullet_impact, new Rotation() { Value = Quaternion.Inverse(entityManager.GetComponentData<LocalToWorld>(hit.Entity).Rotation) * Quaternion.Euler(hit_normal.z * 90+90 - hit_normal.x * 90, hit_normal.y * 90 + hit_normal.x * 90, 0) });
 
                 ecb.AddComponent(bullet_impact, new LocalToParent {  });
 
