@@ -7,6 +7,9 @@ using Unity.Transforms;
 using UnityEngine;
 using Unity.Collections;
 
+
+[UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
+
 public partial class ZombieSpawnerSystem : SystemBase
 {
 

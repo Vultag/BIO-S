@@ -22,7 +22,8 @@ using UnityEngine.UI;
 using UnityEngine.Windows;
 using static UnityEngine.UI.Image;
 
-[UpdateInGroup(typeof(SimulationSystemGroup))] //comprendre ca
+[UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
+//[UpdateInGroup(typeof(SimulationSystemGroup))] //comprendre ca
 public partial class FootRaycastGroundSystem : SystemBase
 {
 

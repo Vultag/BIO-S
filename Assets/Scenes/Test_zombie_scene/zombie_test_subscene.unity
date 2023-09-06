@@ -1790,7 +1790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1786122715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1806,7 +1806,7 @@ MonoBehaviour:
   zombie_prefab: {fileID: 5605693251465127121, guid: 0e0d61be7d23c93489be280be60cd7ad,
     type: 3}
   respawn_timer: 0.4
-  zombie_quantity: 10
+  zombie_quantity: 20
   player_ref_entity: {fileID: 182703856}
   active: 1
 --- !u!4 &1786122716
@@ -11229,6 +11229,7 @@ MonoBehaviour:
   muzzle_flash_entity: {fileID: 3773673338323741592}
   loaded_mag_entity: {fileID: 0}
   slider_entity: {fileID: 3588459149167071492}
+  muzzle_flash_light_entity: {fileID: 0}
 --- !u!108 &6429392171492495609
 Light:
   m_ObjectHideFlags: 0

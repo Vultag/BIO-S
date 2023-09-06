@@ -20,7 +20,11 @@ using Unity.Rendering;
 using System;
 using Unity.Burst;
 
-[UpdateBefore(typeof(FixedStepSimulationSystemGroup))]
+
+[UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
+///[UpdateBefore(typeof(FixedStepSimulationSystemGroup))]
+
+
 public partial class LoadMagOnColSystem : SystemBase
 {
 

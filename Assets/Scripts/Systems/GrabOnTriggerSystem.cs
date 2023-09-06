@@ -19,7 +19,11 @@ using Unity.Rendering;
 
 
 //[AlwaysSynchronizeSystem]
-[UpdateBefore(typeof(FixedStepSimulationSystemGroup))]
+
+
+[UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
+///[UpdateBefore(typeof(FixedStepSimulationSystemGroup))]
+
 //[UpdateAfter(typeof(EndFramePhysicsSystem))]
 public partial class GrabOnTriggerSystem : SystemBase
 {

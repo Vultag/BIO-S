@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using Unity.Rendering;
 using Unity.Transforms;
 using UnityEngine;
+using Unity.Burst;
 
 ///[TemporaryBakingType]
 //[WorldSystemFilter(WorldSystemFilterFlags.ProcessAfterLoad)]
@@ -67,30 +68,28 @@ internal class DeformationSampleBaker : Baker<DeformationsSampleAuthoring>
     }
 }
 
-///[WorldSystemFilter(WorldSystemFilterFlags.BakingSystem)]
+[WorldSystemFilter(WorldSystemFilterFlags.BakingSystem)]
 //Update toutes les frames -> tres mauvais mais je peux pas instancier les skin sans ca -> a revoir.
-[WorldSystemFilter(WorldSystemFilterFlags.Default)]
+///[WorldSystemFilter(WorldSystemFilterFlags.Default)]
 
 //[RequireMatchingQueriesForUpdate]
 
 [UpdateAfter(typeof(FixedStepSimulationSystemGroup))]
 
-public partial class ComputeSkinMatricesBakingSystem : SystemBase
+public partial struct ComputeSkinMatricesBakingSystem : ISystem
 {
-
-    protected override void OnUpdate()
+    [BurstCompile]
+    public void OnUpdate(ref SystemState state)
     {
 
         var ecb = new EntityCommandBuffer(Allocator.TempJob);
 
         // This is only executed if we have a valid skinning setup
-        Entities
-            .WithAll<DeformationSampleColor>()
-            .ForEach((Entity entity, in RootEntity rootEntity, in DynamicBuffer<BoneEntity> bones) =>
+        foreach ( var (rootEntity,bones,entity) in SystemAPI.Query <RefRO<RootEntity>,DynamicBuffer<BoneEntity>>().WithAll<DeformationSampleColor>().WithEntityAccess().WithOptions(EntityQueryOptions.IncludeDisabledEntities|EntityQueryOptions.IncludePrefab))
         {
             // World to local is required for root space conversion of the SkinMatrices
-            ecb.AddComponent<WorldToLocal>(rootEntity.Value);
-            ecb.AddComponent<RootTag>(rootEntity.Value);
+            ecb.AddComponent<WorldToLocal>(rootEntity.ValueRO.Value);
+            ecb.AddComponent<RootTag>(rootEntity.ValueRO.Value);
 
             // Add tags to the bones so we can find them later
             // when computing the SkinMatrices
@@ -99,25 +98,39 @@ public partial class ComputeSkinMatricesBakingSystem : SystemBase
                 var boneEntity = bones[boneIndex].Value;
                 ecb.AddComponent(boneEntity, new BoneTag());
             }
-        }).WithEntityQueryOptions(EntityQueryOptions.IncludeDisabledEntities).WithoutBurst().WithStructuralChanges().Run();
+        }
 
-
-        Entities.ForEach((Entity entity, in DeformationSampleColor deformColor, in DynamicBuffer<AdditionalEntitiesBakingData> additionalEntities) =>
+        foreach (var (deformColor, additionalEntities, entity) in SystemAPI.Query<RefRO<DeformationSampleColor>, DynamicBuffer<AdditionalEntitiesBakingData>>().WithEntityAccess().WithOptions(EntityQueryOptions.IncludeDisabledEntities | EntityQueryOptions.IncludePrefab))
         {
             // Override the material color of the deformation materials
             foreach (var rendererEntity in additionalEntities.AsNativeArray())
             {
-                if (EntityManager.HasComponent<RenderMesh>(rendererEntity.Value))
+                if (state.EntityManager.HasComponent<RenderMesh>(rendererEntity.Value))
                 {
-                    ecb.AddComponent(rendererEntity.Value, new URPMaterialPropertyBaseColor { Value = deformColor.Value });
+                    ecb.AddComponent(rendererEntity.Value, new URPMaterialPropertyBaseColor { Value = deformColor.ValueRO.Value });
                 }
             }
-        }).WithEntityQueryOptions(EntityQueryOptions.IncludeDisabledEntities).WithoutBurst().WithStructuralChanges().Run();
 
-        ecb.Playback(EntityManager);
+        }
+
+
+        ecb.Playback(state.EntityManager);
         ecb.Dispose();
     }
+
+
+    public void OnCreate(ref SystemState state)
+    {
+
+    }
+    public void OnDestroy(ref SystemState state)
+    {
+
+    }
+
 }
+
+
 
 class AnimatePositionBaker : Baker<AnimatePositionAuthoring>
 {

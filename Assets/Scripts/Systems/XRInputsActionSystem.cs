@@ -136,7 +136,7 @@ public partial class XRInputsActionSystem : SystemBase
     {
 
         // character controller
-        Debug.Log(m_CharacterControllerInputQuery.CalculateEntityCount());
+        //Debug.Log(m_CharacterControllerInputQuery.CalculateEntityCount());
         if (m_CharacterControllerInputQuery.CalculateEntityCount() == 0)
             EntityManager.CreateEntity(typeof(CharacterControllerInput));
 

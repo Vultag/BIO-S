@@ -20,9 +20,12 @@ using Unity.Physics.Authoring;
 using Unity.Physics.Systems;
 
 //POUR ENABLE TRANSFORM V1
+
 [UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
+
 //[UpdateInGroup(typeof(SimulationSystemGroup))]
-//[UpdateAfter(typeof(PhysicsSimulationGroup))]
+[UpdateBefore(typeof(PhysicsSimulationGroup))]
+[UpdateAfter(typeof(FollowEntitySystem))]
 
 public partial class IKMasterBodyPartSystem : SystemBase
 {

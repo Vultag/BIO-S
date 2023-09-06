@@ -19,7 +19,8 @@ using Matrix4x4 = UnityEngine.Matrix4x4;
 ///[AlwaysSynchronizeSystem]
 
 //POUR ENABLE TRANSFORM V1
-[UpdateInGroup(typeof(AfterPhysicsSystemGroup))]
+///[UpdateInGroup(typeof(AfterPhysicsSystemGroup))]
+///[UpdateInGroup(typeof(AfterPhysicsSystemGroup))]
 
 //[UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
 
@@ -31,10 +32,20 @@ public partial class FootTargetPosSystem : SystemBase
 
     private EntityManager entityManager;
 
+    private NativeList<Unity.Physics.RaycastHit> rayResults;
+    private NativeList<RaycastInput> rayCommands;
+    private NativeList<Unity.Physics.RaycastHit> raycasthit_result;
+
+
 
     protected override void OnCreate()
     {
         entityManager = World.EntityManager;
+
+      
+        raycasthit_result = new NativeList<Unity.Physics.RaycastHit>(Allocator.Persistent);
+        rayResults = new NativeList<Unity.Physics.RaycastHit>(Allocator.Persistent);
+        rayCommands = new NativeList<RaycastInput>(Allocator.Persistent);
 
 
     }
@@ -54,7 +65,7 @@ public partial class FootTargetPosSystem : SystemBase
     }
 
     public static JobHandle ScheduleBatchRayCast(CollisionWorld world,
-    NativeArray<RaycastInput> inputs, NativeArray<Unity.Physics.RaycastHit> results)
+    NativeArray<RaycastInput> inputs, NativeArray<Unity.Physics.RaycastHit> results, JobHandle jobhandle)
     {
         JobHandle rcj = new RaycastJob
         {
@@ -62,7 +73,7 @@ public partial class FootTargetPosSystem : SystemBase
             results = results,
             world = world
 
-        }.Schedule(inputs.Length, 4);
+        }.Schedule(inputs.Length, 4, jobhandle);
         return rcj;
     }
     protected override void OnUpdate()
@@ -74,19 +85,30 @@ public partial class FootTargetPosSystem : SystemBase
         query = EntityManager.CreateEntityQuery(typeof(FootTargetPosData));
         int datacount = query.CalculateEntityCount();
 
-        NativeArray<Unity.Physics.RaycastHit> raycasthit_result = new NativeArray<Unity.Physics.RaycastHit>(datacount, Allocator.TempJob);
 
-        var rayResults = new NativeArray<Unity.Physics.RaycastHit>(datacount, Allocator.TempJob);
-        var rayCommands = new NativeArray<RaycastInput>(datacount, Allocator.TempJob);
+        raycasthit_result.Clear();
+        rayCommands.Clear();
+        rayResults.Clear();
 
+        raycasthit_result.Resize(datacount, NativeArrayOptions.UninitializedMemory);
+        rayResults.Resize(datacount, NativeArrayOptions.UninitializedMemory);
+        rayCommands.Resize(datacount,NativeArrayOptions.UninitializedMemory); //(datacount);
 
-        Entities.WithoutBurst()
-        .ForEach((Entity entity, int entityInQueryIndex, ref FootTargetPosData targetdata, in TransformAspect trans, in LocalToWorld ltw) =>
+        var raycasthit_result_local = raycasthit_result.AsArray();
+        var rayResults_local = rayResults.AsArray();
+        var rayCommands_local = rayCommands.AsArray();
+
+        this.Dependency = Entities
+            .WithAll<LocalToWorld>()
+        .ForEach((Entity entity, int entityInQueryIndex, ref FootTargetPosData targetdata) =>
         {
+
+            var ltw = SystemAPI.GetComponent<LocalToWorld>(entity);
+
         //if (targetdata.foot_walking == false)
         {
 
-            float3 target_reference_pos = entityManager.GetComponentData<LocalToWorld>(targetdata.zombie_target_pos_entity).Position + (float3)((Quaternion)entityManager.GetComponentData<LocalToWorld>(targetdata.zombie_target_pos_entity).Rotation * (float3)targetdata.target_pos_reference_point_offset);//entityManager.GetComponentData<Translation>(targetdata.zombie_target_pos_entity).Value + (float3)targetdata.target_pos_reference_point_offset;
+            float3 target_reference_pos = SystemAPI.GetComponent<LocalToWorld>(targetdata.zombie_target_pos_entity).Position + (float3)((Quaternion)SystemAPI.GetComponent<LocalToWorld>(targetdata.zombie_target_pos_entity).Rotation * (float3)targetdata.target_pos_reference_point_offset);//entityManager.GetComponentData<Translation>(targetdata.zombie_target_pos_entity).Value + (float3)targetdata.target_pos_reference_point_offset;
 
             //Debug.DrawLine(entityManager.GetComponentData<LocalToWorld>(targetdata.zombie_target_pos_entity).Position, target_reference_pos, Color.cyan);
 
@@ -103,28 +125,34 @@ public partial class FootTargetPosSystem : SystemBase
                 };
 
 
-                rayCommands[entityInQueryIndex] = raycastinputs;
+                rayCommands_local[entityInQueryIndex] = raycastinputs;
             }
 
-        }).Run();
+            SystemAPI.SetComponent<LocalToWorld>(entity, ltw);
+
+        }).Schedule(this.Dependency);
 
 
-        var handle = ScheduleBatchRayCast(phy_world.CollisionWorld, rayCommands, rayResults);
-        handle.Complete();
+        var handle = ScheduleBatchRayCast(phy_world.CollisionWorld, rayCommands_local, rayResults_local, this.Dependency);
 
+
+        /*
         for (int i = 0; i < rayCommands.Length; i++)
         {
 
             //Debug.DrawLine(rayCommands[i].Start, rayCommands[i].End,Color.red);
 
         }
-        
-        
-        Entities.WithoutBurst()
-        .ForEach((Entity entity, int entityInQueryIndex, ref TransformAspect trans, ref FootTargetPosData targetdata) =>
-        {
+        */
 
-            if(entityManager.GetComponentData<FootTargetPosData>(targetdata.other_foot_target).is_grounded)
+        this.Dependency = Entities
+            .WithReadOnly(rayCommands_local)
+            .WithAll<FootTargetPosData>()
+        .ForEach((Entity entity, int entityInQueryIndex, ref TransformAspect trans) =>
+        {
+            var targetdata = SystemAPI.GetComponent<FootTargetPosData>(entity);
+
+            if (SystemAPI.GetComponent<FootTargetPosData>(targetdata.other_foot_target).is_grounded)
             {
 
 
@@ -133,7 +161,7 @@ public partial class FootTargetPosSystem : SystemBase
                     float trigger_walk_distance = 0.2f; //A METTRE EN PUBLIC
 
                     ///var pos_diff = rayCommands[entityInQueryIndex].End.xz - rayCommands[entityInQueryIndex].Start.xz;
-                    var pos_diff = rayCommands[entityInQueryIndex].End - rayCommands[entityInQueryIndex].Start;
+                    var pos_diff = rayCommands_local[entityInQueryIndex].End - rayCommands_local[entityInQueryIndex].Start;
 
                     var pythagore = math.abs(math.sqrt((math.pow(pos_diff.x, 2) + (math.pow(pos_diff.y, 2)))));
 
@@ -142,7 +170,7 @@ public partial class FootTargetPosSystem : SystemBase
                         targetdata.is_grounded = false;
                         targetdata.interpol_start = trans.WorldPosition;
 
-                        targetdata.interpol_end = new float3(rayCommands[entityInQueryIndex].End.x, rayCommands[entityInQueryIndex].End.y, rayCommands[entityInQueryIndex].End.z);
+                        targetdata.interpol_end = new float3(rayCommands_local[entityInQueryIndex].End.x, rayCommands_local[entityInQueryIndex].End.y, rayCommands_local[entityInQueryIndex].End.z);
 
                         targetdata.foot_walking = true;
                     }
@@ -151,17 +179,17 @@ public partial class FootTargetPosSystem : SystemBase
                 {
 
 
-                    targetdata.interpolate_amount += SystemAPI.Time.DeltaTime*1.5f;
+                    targetdata.interpolate_amount += SystemAPI.Time.DeltaTime * 1.5f;
 
                     if (Vector3.Distance(trans.WorldPosition, targetdata.interpol_end) > 0.1f) // 0.1 initialement a 0 mais a tendence a se block 
                     {
 
-                        var torso_physics = GetComponentLookup<PhysicsVelocity>(true);
-                        var torso_physic_data = torso_physics[entityManager.GetComponentData<ZombieHipsReferencePointData>(targetdata.zombie_target_pos_entity).ZombieTorsoEntity];
+                        var torso_physics = SystemAPI.GetComponent<PhysicsVelocity>(SystemAPI.GetComponent<ZombieHipsReferencePointData>(targetdata.zombie_target_pos_entity).ZombieTorsoEntity); //GetComponentLookup<PhysicsVelocity>(true);
+                        //var torso_physic_data = torso_physics[entityManager.GetComponentData<ZombieHipsReferencePointData>(targetdata.zombie_target_pos_entity).ZombieTorsoEntity];
 
-                        Vector3 horizontal_torso_vel_direction = (new Vector3(torso_physic_data.Linear.x, 0, torso_physic_data.Linear.z));
+                        Vector3 horizontal_torso_vel_direction = (new Vector3(torso_physics.Linear.x, 0, torso_physics.Linear.z));
 
-                        targetdata.interpol_end = new float3(rayCommands[entityInQueryIndex].End.x, rayCommands[entityInQueryIndex].End.y, rayCommands[entityInQueryIndex].End.z);
+                        targetdata.interpol_end = new float3(rayCommands_local[entityInQueryIndex].End.x, rayCommands_local[entityInQueryIndex].End.y, rayCommands_local[entityInQueryIndex].End.z);
                         targetdata.interpol_end += horizontal_torso_vel_direction * 0.3f;
 
 
@@ -181,22 +209,14 @@ public partial class FootTargetPosSystem : SystemBase
                 }
 
 
+                SystemAPI.SetComponent<FootTargetPosData>(entity, targetdata);
 
             }
 
 
 
-        }).Run();
+        }).Schedule(handle);//.Run();
         
         
-
-
-
-
-        raycasthit_result.Dispose();
-        rayCommands.Dispose();
-        rayResults.Dispose();
-
-
     }
 }

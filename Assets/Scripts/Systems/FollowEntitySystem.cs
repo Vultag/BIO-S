@@ -38,14 +38,16 @@ public partial class FollowEntitySystem : SystemBase
     {
 
         Entities
-            .WithoutBurst()
-        .ForEach((ref TransformAspect trans, in FollowEntityData data) =>
+            .WithAll<LocalToWorld,LocalToParent>()
+        .ForEach((Entity entity, in FollowEntityData data) =>
         {
 
-            trans.WorldPosition = entityManager.GetComponentData<LocalToWorld>(data.entity_to_follow).Position;
-            trans.WorldRotation = entityManager.GetComponentData<LocalToWorld>(data.entity_to_follow).Rotation;
+            var trans = SystemAPI.GetAspectRW<TransformAspect>(entity);
+
+            trans.WorldPosition = SystemAPI.GetAspectRO<TransformAspect>(data.entity_to_follow).WorldPosition;
+            trans.WorldRotation = SystemAPI.GetAspectRO<TransformAspect>(data.entity_to_follow).WorldRotation;
 
 
-        }).Run();
+        }).Schedule();
     }
 }

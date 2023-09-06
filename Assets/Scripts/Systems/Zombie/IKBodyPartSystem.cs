@@ -18,7 +18,10 @@ using Unity.VisualScripting;
 using static Unity.Physics.Math;
 
 //[UpdateInGroup(typeof(InitializationSystemGroup))]
+
 [UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
+
+
 ///change qq chose ? j avais un warning qui dit ca sert a rien
 ///[UpdateAfter(typeof(PhysicsSimulationGroup))]
 public partial class IKBodyPartSystem : SystemBase
