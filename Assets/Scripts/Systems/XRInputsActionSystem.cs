@@ -135,6 +135,10 @@ public partial class XRInputsActionSystem : SystemBase
     protected override void OnUpdate()
     {
 
+        // character controller
+        Debug.Log(m_CharacterControllerInputQuery.CalculateEntityCount());
+        if (m_CharacterControllerInputQuery.CalculateEntityCount() == 0)
+            EntityManager.CreateEntity(typeof(CharacterControllerInput));
 
 
     }
@@ -218,38 +222,50 @@ public partial class XRInputsActionSystem : SystemBase
     private void R_pad_activate(CallbackContext obj)
     {
 
-        ///Debug.Log(obj.ReadValue<Vector2>());
+        //Debug.Log(obj.ReadValue<Vector2>());
         ///a reactiver pour les tests en vr
         
         m_CharacterMovement = obj.ReadValue<Vector2>();
         
-
+        /*
         if (m_CharacterControllerInputQuery.CalculateEntityCount() == 0)
             EntityManager.CreateEntity(typeof(CharacterControllerInput));
-
+        */
         //se referer a mes paints logic_charControl_mouv pour comprendre
 
         //if necessaire que si en update?
-        if (headQuery.CalculateEntityCount() == 1)
+        //if (headQuery.CalculateEntityCount() == 1)
         {
 
-            float horiz_rot = ((Quaternion)headQuery.GetSingleton<LocalToWorld>().Rotation).eulerAngles.y;
+
+            float horiz_rot = ((Quaternion)entityManager.GetComponentData<LocalToWorld>(headQuery.ToEntityArray(Allocator.TempJob)[0]).Rotation).eulerAngles.y;
 
             float axe_A = ((math.abs(horiz_rot - 180)) - 90) / 180;
             float axe_B = ((math.abs(horiz_rot - 180 + (horiz_rot <= 90 ? +270 : -90))) - 90) / 180;
 
-            float mouv_x = m_CharacterMovement.x * axe_A + m_CharacterMovement.y * -axe_B;
-            float mouv_y = m_CharacterMovement.y * axe_A + m_CharacterMovement.x * axe_B;
+            float mouv_x = m_CharacterMovement.x * axe_A + m_CharacterMovement.y * axe_B;
+            float mouv_y = m_CharacterMovement.y * axe_A + m_CharacterMovement.x * -axe_B;
 
 
-            //Debug.Log(axe_A);
-            //Debug.Log(axe_B);
+
+            ///smooth out movement
+            ///peux pas changer le speed ici
+            //mouv_x = mouv_x * m_CharacterMovement.x;
+            //mouv_y =  mouv_y * m_CharacterMovement.y;
+
+            //float2 mouv = new float2(0.1f, 0) * ((math.abs(m_CharacterMovement.x) + math.abs(m_CharacterMovement.y))*0.5f);
+
+
+            //Debug.Log(mouv);
+            //Debug.Log(mouv_x);
+            //Debug.Log(mouv_y);
 
             m_CharacterControllerInputQuery.SetSingleton(new CharacterControllerInput
             {
                 Looking = new float2(0, 0),
-                Movement = new float2(mouv_y, mouv_x),
-                Jumped = 0//m_CharacterJumped ? 1 : 0
+                Speed = 1f,//(math.abs(m_CharacterMovement.x) + math.abs(m_CharacterMovement.y)) * 0.5f,
+                Movement = new float2(mouv_x,mouv_y),
+                Jumped = 0//m_CharacterJumped ? 1 : 0,
             });
         }
         

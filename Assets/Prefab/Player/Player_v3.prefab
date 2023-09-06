@@ -455,6 +455,8 @@ GameObject:
   - component: {fileID: 182507125}
   - component: {fileID: 182507128}
   - component: {fileID: 182507129}
+  - component: {fileID: 1330967899521616495}
+  - component: {fileID: 569297364448074894}
   m_Layer: 0
   m_Name: VR_Root_body
   m_TagString: Untagged
@@ -492,12 +494,12 @@ MonoBehaviour:
   m_ShapeType: 1
   m_PrimitiveCenter:
     x: 0
-    y: 0.86
+    y: 0.835
     z: 0
   m_PrimitiveSize:
     x: 0.14
     y: 0.14
-    z: 1.65
+    z: 1.6
   m_PrimitiveOrientation:
     Value:
       x: 90
@@ -505,15 +507,15 @@ MonoBehaviour:
       z: 0
     RotationOrder: 4
   m_Capsule:
-    Height: 1.65
+    Height: 1.6
     Radius: 0.07
     Axis: 2
   m_Cylinder:
-    Height: 1.65
+    Height: 1.6
     Radius: 0.07
     Axis: 2
   m_CylinderSideCount: 20
-  m_SphereRadius: 0.825
+  m_SphereRadius: 0.8
   m_MinimumSkinnedVertexWeight: 0.1
   m_ConvexHullGenerationParameters:
     m_SimplificationTolerance: 0.015
@@ -546,7 +548,7 @@ MonoBehaviour:
         Category03: 0
         Category04: 0
         Category05: 0
-        Category06: 0
+        Category06: 1
         Category07: 0
         Category08: 0
         Category09: 0
@@ -575,7 +577,7 @@ MonoBehaviour:
     m_CollidesWithCategories:
       m_Override: 0
       m_Value:
-        Category00: 0
+        Category00: 1
         Category01: 0
         Category02: 0
         Category03: 0
@@ -713,8 +715,8 @@ MonoBehaviour:
     x: -0
     y: -9.81
     z: -0
-  MovementSpeed: 2.5
-  MaxMovementSpeed: 10
+  MovementSpeed: 1
+  MaxMovementSpeed: 5
   RotationSpeed: 2.5
   JumpUpwardsSpeed: 5
   MaxSlope: 60
@@ -725,6 +727,56 @@ MonoBehaviour:
   AffectsPhysicsBodies: 1
   RaiseCollisionEvents: 0
   RaiseTriggerEvents: 0
+--- !u!33 &1330967899521616495
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182507122}
+  m_Mesh: {fileID: 6435710830084183811, guid: 3b0311a4ce7f8124998224cb2fda6a5a, type: 3}
+--- !u!23 &569297364448074894
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182507122}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -7760337498784302257, guid: 4e72e690256f0984fbbb5d7bf53601e9, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &325605778
 GameObject:
   m_ObjectHideFlags: 0
@@ -2537,7 +2589,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 1
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -4587,7 +4639,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -5604,7 +5656,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -5998,7 +6050,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -6391,7 +6443,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 1
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -6505,7 +6557,7 @@ MonoBehaviour:
     z: -0.06
   PositionInConnectedEntity:
     x: 0.00011253357
-    y: -0.2608073
+    y: -0.26080734
     z: -0.0377565
   EditAxes: 1
   EditLimits: 1
@@ -7568,7 +7620,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 1
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -8415,7 +8467,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -8568,7 +8620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fantome_correspondant: {fileID: 7233820931346285896}
-  upper_finger_bone: {fileID: 0}
+  upper_finger_bone: {fileID: 5808239647949506091}
   Skin_finger_entity: {fileID: 7008536827385502603}
   hand_root: {fileID: 5808239647949506091}
 --- !u!114 &2211433514666157803
@@ -8904,7 +8956,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -9057,7 +9109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fantome_correspondant: {fileID: 7233820932732294505}
-  upper_finger_bone: {fileID: 0}
+  upper_finger_bone: {fileID: 6373564614643556965}
   Skin_finger_entity: {fileID: 1534070191260322040}
   hand_root: {fileID: 6373564614643556965}
 --- !u!114 &2326362610701487385
@@ -9747,7 +9799,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -10436,7 +10488,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -10925,7 +10977,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -11078,7 +11130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fantome_correspondant: {fileID: 7233820933124110029}
-  upper_finger_bone: {fileID: 0}
+  upper_finger_bone: {fileID: 6373564614643556965}
   Skin_finger_entity: {fileID: 7149545577103538270}
   hand_root: {fileID: 6373564614643556965}
 --- !u!114 &3109443746768569551
@@ -11381,7 +11433,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 1
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -12051,7 +12103,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 1
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -12748,7 +12800,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -13141,7 +13193,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 1
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -13604,7 +13656,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 1
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -13938,7 +13990,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 1
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -14731,7 +14783,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -14884,7 +14936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fantome_correspondant: {fileID: 7233820932796333308}
-  upper_finger_bone: {fileID: 0}
+  upper_finger_bone: {fileID: 5808239647949506091}
   Skin_finger_entity: {fileID: 7845131553850352815}
   hand_root: {fileID: 5808239647949506091}
 --- !u!114 &1569407418634520646
@@ -15785,7 +15837,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 1
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -16743,7 +16795,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -16896,7 +16948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fantome_correspondant: {fileID: 7233820932506289606}
-  upper_finger_bone: {fileID: 0}
+  upper_finger_bone: {fileID: 6373564614643556965}
   Skin_finger_entity: {fileID: 8106190293879396075}
   hand_root: {fileID: 6373564614643556965}
 --- !u!114 &3293093168686286868
@@ -17137,7 +17189,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -17500,7 +17552,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -17628,13 +17680,13 @@ MonoBehaviour:
     y: -0.45037162
     z: 0.5020536
   PerpendicularAxisLocal:
-    x: -0.4286049
-    y: 0.261449
-    z: 0.8648365
+    x: -0.42860496
+    y: 0.26144904
+    z: 0.86483663
   PerpendicularAxisInConnectedEntity:
-    x: -0.4286049
-    y: 0.261449
-    z: 0.8648365
+    x: -0.42860496
+    y: 0.26144904
+    z: 0.86483663
   MaxConeAngle: 90
   MinPerpendicularAngle: -90
   MaxPerpendicularAngle: 90
@@ -17653,7 +17705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fantome_correspondant: {fileID: 7233820933072083894}
-  upper_finger_bone: {fileID: 0}
+  upper_finger_bone: {fileID: 5808239647949506091}
   Skin_finger_entity: {fileID: 2435001454497362448}
   hand_root: {fileID: 5808239647949506091}
 --- !u!114 &3063734806940011645
@@ -18056,7 +18108,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -18451,7 +18503,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 1
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -18786,7 +18838,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -19646,7 +19698,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -20331,7 +20383,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -20727,7 +20779,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -20880,7 +20932,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fantome_correspondant: {fileID: 7233820933244034440}
-  upper_finger_bone: {fileID: 0}
+  upper_finger_bone: {fileID: 6373564614643556965}
   Skin_finger_entity: {fileID: 6053500590885059122}
   hand_root: {fileID: 6373564614643556965}
 --- !u!114 &2967081814800171734
@@ -21090,7 +21142,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -22852,7 +22904,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 1
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -23346,7 +23398,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -23499,7 +23551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fantome_correspondant: {fileID: 7233820932522162137}
-  upper_finger_bone: {fileID: 0}
+  upper_finger_bone: {fileID: 5808239647949506091}
   Skin_finger_entity: {fileID: 3753555736032176718}
   hand_root: {fileID: 5808239647949506091}
 --- !u!114 &6688085158261621761
@@ -23710,7 +23762,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 1
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -25324,7 +25376,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7233820931455791057}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -26460,7 +26512,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7233820931687153612}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -28527,7 +28579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7233820932745186335
 Transform:
   m_ObjectHideFlags: 0
@@ -28610,7 +28662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7233820932760570116
 Transform:
   m_ObjectHideFlags: 0
@@ -28711,7 +28763,7 @@ Transform:
   - {fileID: 2342445763016392290}
   - {fileID: 7842349849229415520}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7233820932780762539
 GameObject:
@@ -31929,7 +31981,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -32811,7 +32863,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -33319,7 +33371,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -34067,7 +34119,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -34430,7 +34482,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -35179,7 +35231,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -35332,7 +35384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fantome_correspondant: {fileID: 7233820932422793635}
-  upper_finger_bone: {fileID: 0}
+  upper_finger_bone: {fileID: 6373564614643556965}
   Skin_finger_entity: {fileID: 8448872738435646719}
   hand_root: {fileID: 6373564614643556965}
 --- !u!114 &675606384388022103
@@ -35602,7 +35654,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 1
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -36093,7 +36145,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 1
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -36207,7 +36259,7 @@ MonoBehaviour:
     z: -0.06
   PositionInConnectedEntity:
     x: -0.00011253357
-    y: -0.26080734
+    y: -0.26080737
     z: -0.0377565
   EditAxes: 1
   EditLimits: 1
@@ -36617,7 +36669,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -37044,7 +37096,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -37745,7 +37797,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -38233,7 +38285,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -38386,7 +38438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fantome_correspondant: {fileID: 7233820933069629914}
-  upper_finger_bone: {fileID: 0}
+  upper_finger_bone: {fileID: 5808239647949506091}
   Skin_finger_entity: {fileID: 5871672448286806026}
   hand_root: {fileID: 5808239647949506091}
 --- !u!114 &4078559798086519060

@@ -6,6 +6,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 #endif
 
+/// <summary>
+/// PAS UTILISE
+/// </summary>
+
 [UpdateInGroup(typeof(InitializationSystemGroup))]
 partial class DemoInputGatheringSystem : SystemBase
 #if UNITY_INPUT_SYSTEM_EXISTS
@@ -38,8 +42,8 @@ partial class DemoInputGatheringSystem : SystemBase
         m_InputActions.Vehicle.SetCallbacks(this);
 #endif
 
-        m_CharacterControllerInputQuery = GetEntityQuery(typeof(CharacterControllerInput));
-        m_CharacterGunInputQuery = GetEntityQuery(typeof(CharacterGunInput));
+        //m_CharacterControllerInputQuery = GetEntityQuery(typeof(CharacterControllerInput));
+        //m_CharacterGunInputQuery = GetEntityQuery(typeof(CharacterGunInput));
         //m_VehicleInputQuery = GetEntityQuery(typeof(VehicleInput));
     }
 
@@ -65,11 +69,11 @@ partial class DemoInputGatheringSystem : SystemBase
     protected override void OnUpdate()
     {
         // character controller
-        
+        /*
         if (m_CharacterControllerInputQuery.CalculateEntityCount() == 0)
             EntityManager.CreateEntity(typeof(CharacterControllerInput));
 
-        //Debug.Log(m_CharacterMovement);
+        Debug.Log(m_CharacterMovement);
 
         m_CharacterControllerInputQuery.SetSingleton(new CharacterControllerInput
         {
@@ -77,6 +81,7 @@ partial class DemoInputGatheringSystem : SystemBase
             Movement = m_CharacterMovement,//new Unity.Mathematics.float2(1, 1),//
             Jumped = m_CharacterJumped ? 1 : 0
         });
+        */
         /*
         if (m_CharacterGunInputQuery.CalculateEntityCount() == 0)
             EntityManager.CreateEntity(typeof(CharacterGunInput));
@@ -88,7 +93,7 @@ partial class DemoInputGatheringSystem : SystemBase
         });
         */
         m_CharacterJumped = false;
-        
+
         // vehicle
         /*
         if (m_VehicleInputQuery.CalculateEntityCount() == 0)
@@ -106,3 +111,4 @@ partial class DemoInputGatheringSystem : SystemBase
         */
     }
 }
+

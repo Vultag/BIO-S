@@ -3105,7 +3105,7 @@ MonoBehaviour:
   m_ForceUnique: 0
   m_Material:
     m_SupportsTemplate: 1
-    m_Template: {fileID: 11400000, guid: cf3e57d7860e96449b97cbae98bb1ba5, type: 2}
+    m_Template: {fileID: 11400000, guid: ca5f3eed7bc69bb47b83feaa95c36ae5, type: 2}
     m_CollisionResponse:
       m_Override: 0
       m_Value: 0
@@ -13554,7 +13554,7 @@ MonoBehaviour:
         Value: 0
         CombineMode: 2
     m_BelongsToCategories:
-      m_Override: 0
+      m_Override: 1
       m_Value:
         Category00: 0
         Category01: 0
@@ -27471,7 +27471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccea9ea98e38942e0b0938c27ed1903e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MotionType: 0
+  m_MotionType: 2
   m_Smoothing: 0
   m_Mass: 80
   m_LinearDamping: 0.01
@@ -27556,7 +27556,7 @@ MonoBehaviour:
   m_ForceUnique: 0
   m_Material:
     m_SupportsTemplate: 1
-    m_Template: {fileID: 11400000, guid: cf3e57d7860e96449b97cbae98bb1ba5, type: 2}
+    m_Template: {fileID: 11400000, guid: ca5f3eed7bc69bb47b83feaa95c36ae5, type: 2}
     m_CollisionResponse:
       m_Override: 0
       m_Value: 0
@@ -27699,7 +27699,7 @@ MonoBehaviour:
   m_ForceUnique: 0
   m_Material:
     m_SupportsTemplate: 1
-    m_Template: {fileID: 11400000, guid: cf3e57d7860e96449b97cbae98bb1ba5, type: 2}
+    m_Template: {fileID: 11400000, guid: ca5f3eed7bc69bb47b83feaa95c36ae5, type: 2}
     m_CollisionResponse:
       m_Override: 0
       m_Value: 0
@@ -27842,7 +27842,7 @@ MonoBehaviour:
   m_ForceUnique: 0
   m_Material:
     m_SupportsTemplate: 1
-    m_Template: {fileID: 11400000, guid: cf3e57d7860e96449b97cbae98bb1ba5, type: 2}
+    m_Template: {fileID: 11400000, guid: ca5f3eed7bc69bb47b83feaa95c36ae5, type: 2}
     m_CollisionResponse:
       m_Override: 0
       m_Value: 0
@@ -27985,7 +27985,7 @@ MonoBehaviour:
   m_ForceUnique: 0
   m_Material:
     m_SupportsTemplate: 1
-    m_Template: {fileID: 11400000, guid: cf3e57d7860e96449b97cbae98bb1ba5, type: 2}
+    m_Template: {fileID: 11400000, guid: ca5f3eed7bc69bb47b83feaa95c36ae5, type: 2}
     m_CollisionResponse:
       m_Override: 0
       m_Value: 0
@@ -28128,7 +28128,7 @@ MonoBehaviour:
   m_ForceUnique: 0
   m_Material:
     m_SupportsTemplate: 1
-    m_Template: {fileID: 11400000, guid: cf3e57d7860e96449b97cbae98bb1ba5, type: 2}
+    m_Template: {fileID: 11400000, guid: ca5f3eed7bc69bb47b83feaa95c36ae5, type: 2}
     m_CollisionResponse:
       m_Override: 0
       m_Value: 0
@@ -31397,7 +31397,7 @@ MonoBehaviour:
   m_ForceUnique: 0
   m_Material:
     m_SupportsTemplate: 1
-    m_Template: {fileID: 11400000, guid: cf3e57d7860e96449b97cbae98bb1ba5, type: 2}
+    m_Template: {fileID: 11400000, guid: ca5f3eed7bc69bb47b83feaa95c36ae5, type: 2}
     m_CollisionResponse:
       m_Override: 0
       m_Value: 0
@@ -35971,7 +35971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccea9ea98e38942e0b0938c27ed1903e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MotionType: 0
+  m_MotionType: 2
   m_Smoothing: 0
   m_Mass: 80
   m_LinearDamping: 0.01
@@ -36056,7 +36056,7 @@ MonoBehaviour:
   m_ForceUnique: 0
   m_Material:
     m_SupportsTemplate: 1
-    m_Template: {fileID: 11400000, guid: cf3e57d7860e96449b97cbae98bb1ba5, type: 2}
+    m_Template: {fileID: 11400000, guid: ca5f3eed7bc69bb47b83feaa95c36ae5, type: 2}
     m_CollisionResponse:
       m_Override: 0
       m_Value: 0
@@ -36199,7 +36199,7 @@ MonoBehaviour:
   m_ForceUnique: 0
   m_Material:
     m_SupportsTemplate: 1
-    m_Template: {fileID: 11400000, guid: cf3e57d7860e96449b97cbae98bb1ba5, type: 2}
+    m_Template: {fileID: 11400000, guid: ca5f3eed7bc69bb47b83feaa95c36ae5, type: 2}
     m_CollisionResponse:
       m_Override: 0
       m_Value: 0
@@ -36342,7 +36342,7 @@ MonoBehaviour:
   m_ForceUnique: 0
   m_Material:
     m_SupportsTemplate: 1
-    m_Template: {fileID: 11400000, guid: cf3e57d7860e96449b97cbae98bb1ba5, type: 2}
+    m_Template: {fileID: 11400000, guid: ca5f3eed7bc69bb47b83feaa95c36ae5, type: 2}
     m_CollisionResponse:
       m_Override: 0
       m_Value: 0
@@ -36485,7 +36485,7 @@ MonoBehaviour:
   m_ForceUnique: 0
   m_Material:
     m_SupportsTemplate: 1
-    m_Template: {fileID: 11400000, guid: cf3e57d7860e96449b97cbae98bb1ba5, type: 2}
+    m_Template: {fileID: 11400000, guid: ca5f3eed7bc69bb47b83feaa95c36ae5, type: 2}
     m_CollisionResponse:
       m_Override: 0
       m_Value: 0
@@ -36628,7 +36628,7 @@ MonoBehaviour:
   m_ForceUnique: 0
   m_Material:
     m_SupportsTemplate: 1
-    m_Template: {fileID: 11400000, guid: cf3e57d7860e96449b97cbae98bb1ba5, type: 2}
+    m_Template: {fileID: 11400000, guid: ca5f3eed7bc69bb47b83feaa95c36ae5, type: 2}
     m_CollisionResponse:
       m_Override: 0
       m_Value: 0
@@ -37161,6 +37161,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7151441955546003473, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
+      propertyPath: PositionInConnectedEntity.x
+      value: -0.1575428
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151441955546003473, guid: e4f4977a30ba2234386e10e3943067b1,
+        type: 3}
       propertyPath: PositionInConnectedEntity.z
       value: 0.0017528832
       objectReference: {fileID: 0}
@@ -37193,6 +37198,11 @@ PrefabInstance:
         type: 3}
       propertyPath: PositionInConnectedEntity.y
       value: 0.05030644
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414933442782340832, guid: e4f4977a30ba2234386e10e3943067b1,
+        type: 3}
+      propertyPath: PositionInConnectedEntity.z
+      value: 0.015573502
       objectReference: {fileID: 0}
     - target: {fileID: 7414933442782340832, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
@@ -37357,6 +37367,11 @@ PrefabInstance:
         type: 3}
       propertyPath: PositionInConnectedEntity.y
       value: -0.11304793
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100062878720487920, guid: e4f4977a30ba2234386e10e3943067b1,
+        type: 3}
+      propertyPath: PositionInConnectedEntity.z
+      value: -0.008673705
       objectReference: {fileID: 0}
     - target: {fileID: 1100062878720487920, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
@@ -37720,6 +37735,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7414933442782340832, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
+      propertyPath: PositionInConnectedEntity.z
+      value: 0.015573502
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414933442782340832, guid: e4f4977a30ba2234386e10e3943067b1,
+        type: 3}
       propertyPath: TwistAxisInConnectedEntity.x
       value: -4.235165e-22
       objectReference: {fileID: 0}
@@ -37968,6 +37988,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1100062878720487920, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
+      propertyPath: PositionInConnectedEntity.z
+      value: -0.008673705
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100062878720487920, guid: e4f4977a30ba2234386e10e3943067b1,
+        type: 3}
       propertyPath: TwistAxisInConnectedEntity.x
       value: 9.313228e-10
       objectReference: {fileID: 0}
@@ -38083,6 +38108,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4655121069240573681, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
+      propertyPath: PositionInConnectedEntity.x
+      value: -0.18306687
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655121069240573681, guid: e4f4977a30ba2234386e10e3943067b1,
+        type: 3}
       propertyPath: PositionInConnectedEntity.y
       value: -0.013580799
       objectReference: {fileID: 0}
@@ -38180,6 +38210,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Zombie_prefab_v5_idle_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151441955546003473, guid: e4f4977a30ba2234386e10e3943067b1,
+        type: 3}
+      propertyPath: PositionInConnectedEntity.x
+      value: -0.1575428
       objectReference: {fileID: 0}
     - target: {fileID: 7151441955546003473, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}

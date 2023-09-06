@@ -41,8 +41,8 @@ public partial class CheckForSlashingBodyPresenceSystem : SystemBase
 
     private float3 katana_offset_pos = new float3(0.021f,0, 0);
 
-    private float rigidity_multipliyer = 10f;
-    private float time_before_rigid = 0.8f;
+    private float rigidity_multipliyer = 20f;//10f
+    private float time_before_rigid = 0.6f;
 
 
 

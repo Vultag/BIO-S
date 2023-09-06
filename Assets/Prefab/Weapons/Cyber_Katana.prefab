@@ -42,7 +42,7 @@ Transform:
   - {fileID: 8433837630540375761}
   - {fileID: 3317584785424239832}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &4401607040760309888
 MeshFilter:
@@ -251,7 +251,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -394,7 +394,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0

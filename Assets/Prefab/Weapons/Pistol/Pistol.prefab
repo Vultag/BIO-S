@@ -743,7 +743,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -886,7 +886,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -1647,7 +1647,7 @@ MonoBehaviour:
         Category05: 0
         Category06: 0
         Category07: 0
-        Category08: 0
+        Category08: 1
         Category09: 0
         Category10: 0
         Category11: 0
@@ -1821,8 +1821,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c44636e007ebbc24dbb8baf4547b9361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  motor_target_speed: 1
-  motor_max_impulse_applided: 0.2
+  motor_target_speed: 2
+  motor_max_impulse_applided: 0.4
 --- !u!1 &7443264264133746582
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ MonoBehaviour:
   - Magazine_detect
   - CharControl
   - ZombieDetect
-  - 
+  - Ground_exclude_charcontrol
   - 
   - 
   - 

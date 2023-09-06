@@ -38,6 +38,8 @@ public struct CharacterControllerComponentData : IComponentData
 public struct CharacterControllerInput : IComponentData
 {
     public float2 Movement;
+    ///CUSTOM
+    public float Speed;
     public float2 Looking;
     public int Jumped;
 }
@@ -99,7 +101,7 @@ public class CharacterControllerAuthoring : MonoBehaviour
     // Whether to raise trigger events
     public bool RaiseTriggerEvents = false;
 
-    void OnEnable() {}
+    void OnEnable() { }
 }
 
 class CharacterControllerBaker : Baker<CharacterControllerAuthoring>
@@ -139,7 +141,7 @@ class CharacterControllerBaker : Baker<CharacterControllerAuthoring>
             if (authoring.RaiseTriggerEvents)
             {
                 AddBuffer<StatefulTriggerEvent>();
-                AddComponent(new StatefulTriggerEventExclude {});
+                AddComponent(new StatefulTriggerEventExclude { });
             }
         }
     }
@@ -467,6 +469,10 @@ public partial struct CharacterControllerSystem : ISystem
         private void HandleUserInput(CharacterControllerComponentData ccComponentData, float3 up, float3 surfaceVelocity,
             ref CharacterControllerInternalData ccInternalData, ref float3 linearVelocity)
         {
+
+            ///CUSTOM
+            float speed = ccInternalData.Input.Speed;
+
             // Reset jumping state and unsupported velocity
             if (ccInternalData.SupportedState == CharacterSupportState.Supported)
             {
@@ -526,7 +532,8 @@ public partial struct CharacterControllerSystem : ISystem
                     ccInternalData.UnsupportedVelocity += ccComponentData.Gravity * DeltaTime;
                 }
                 // If unsupported then keep jump and surface momentum
-                linearVelocity = requestedMovementDirection * ccComponentData.MovementSpeed +
+                ///CUSTOM -> remplacer 1 par speed quand j aurais reussi a transmettre la data de l input
+                linearVelocity = requestedMovementDirection * ccComponentData.MovementSpeed * 1f +
                     (ccInternalData.SupportedState != CharacterSupportState.Supported ? ccInternalData.UnsupportedVelocity : float3.zero);
             }
         }

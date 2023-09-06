@@ -328,7 +328,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452177531083614316}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -691,7 +691,7 @@ MonoBehaviour:
   PositionInConnectedEntity:
     x: 0
     y: 0.12370416
-    z: 0.00502944
+    z: 0.0050294995
   EditAxes: 1
   EditLimits: 1
   m_Version: 1
@@ -1068,9 +1068,9 @@ MonoBehaviour:
     y: 0.285
     z: -0.04
   PositionInConnectedEntity:
-    x: 0.07579957
+    x: 0.07579945
     y: -0.11304805
-    z: -0.008673705
+    z: -0.008673467
   EditAxes: 1
   EditLimits: 1
   m_Version: 1
@@ -1620,9 +1620,9 @@ MonoBehaviour:
     y: 0
     z: 0
   PositionInConnectedEntity:
-    x: 0.0040824413
+    x: 0.004082501
     y: -0.27031326
-    z: -0.018624067
+    z: -0.018624127
   OrientationLocal:
     value:
       x: 0
@@ -2108,7 +2108,7 @@ MonoBehaviour:
   PositionInConnectedEntity:
     x: 0
     y: 0.05030608
-    z: 0.015573502
+    z: 0.015573621
   EditAxes: 1
   EditLimits: 1
   m_Version: 1
@@ -2528,7 +2528,7 @@ MonoBehaviour:
     y: 0.028283596
     z: -0.022327542
   PositionInConnectedEntity:
-    x: -0.18306687
+    x: -0.18306693
     y: -0.013581157
     z: -0.039948106
   EditAxes: 1
@@ -2923,9 +2923,9 @@ MonoBehaviour:
     y: 0.285
     z: -0.04
   PositionInConnectedEntity:
-    x: -0.08370648
+    x: -0.0837066
     y: -0.112286836
-    z: -0.008774318
+    z: -0.008774258
   EditAxes: 1
   EditLimits: 1
   m_Version: 1
@@ -3381,7 +3381,7 @@ MonoBehaviour:
     y: 0.207
     z: 0.03
   PositionInConnectedEntity:
-    x: 0.0028442147
+    x: 0.0028442743
     y: -0.3069538
     z: 0.0356448
   EditAxes: 1
@@ -3974,7 +3974,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3482796657316664330}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4370,7 +4370,7 @@ MonoBehaviour:
   PositionInConnectedEntity:
     x: 0.15754268
     y: 0.07464519
-    z: 0.0017536059
+    z: 0.0017536655
   EditAxes: 1
   EditLimits: 1
   m_Version: 1
@@ -5912,9 +5912,9 @@ MonoBehaviour:
     y: 0.007
     z: 0.04
   PositionInConnectedEntity:
-    x: -0.1575428
+    x: -0.15754274
     y: 0.07464555
-    z: 0.0017536059
+    z: 0.0017537251
   EditAxes: 1
   EditLimits: 1
   m_Version: 1
@@ -6340,7 +6340,7 @@ MonoBehaviour:
   PositionInConnectedEntity:
     x: -0.00011265278
     y: -0.26080737
-    z: -0.037756022
+    z: -0.03775614
   EditAxes: 1
   EditLimits: 1
   m_Version: 1
@@ -6449,7 +6449,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6591428326897573625}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.353, y: 0.002, z: -2.147}
+  m_LocalPosition: {x: 0, y: 0.002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6619,9 +6619,9 @@ MonoBehaviour:
     y: 0
     z: 0
   PositionInConnectedEntity:
-    x: -0.0036139488
+    x: -0.0036140084
     y: -0.056725264
-    z: 0.019886017
+    z: 0.019885957
   EditAxes: 1
   EditLimits: 1
   m_Version: 1
@@ -6956,9 +6956,9 @@ MonoBehaviour:
     y: 0.207
     z: 0.03
   PositionInConnectedEntity:
-    x: -0.0031021833
+    x: -0.003102094
     y: -0.30771506
-    z: 0.035745412
+    z: 0.03574559
   EditAxes: 1
   EditLimits: 1
   m_Version: 1
@@ -7554,9 +7554,9 @@ MonoBehaviour:
     y: 0.046
     z: -0.06
   PositionInConnectedEntity:
-    x: 0.00011265278
+    x: 0.000112593174
     y: -0.26080734
-    z: -0.037756022
+    z: -0.03775614
   EditAxes: 0
   EditLimits: 0
   m_Version: 1
@@ -8133,7 +8133,7 @@ MonoBehaviour:
   PositionInConnectedEntity:
     x: 0.18306747
     y: -0.013580799
-    z: -0.039948106
+    z: -0.039948046
   EditAxes: 0
   EditLimits: 0
   m_Version: 1

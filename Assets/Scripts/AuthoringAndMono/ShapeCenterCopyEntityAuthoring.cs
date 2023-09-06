@@ -72,8 +72,8 @@ public partial class ShapeCenterCopyEntitySystem : SystemBase
         foreach (var (ShapeCenterCopyEntity,collider) in SystemAPI.Query<RefRW<ShapeCenterCopyEntity>,RefRW<PhysicsCollider>>())
         {
 
-
-            Vector3 offset =  entityManager.GetComponentData<LocalToWorld>(ShapeCenterCopyEntity.ValueRO.target_entity).Position - entityManager.GetComponentData<LocalToWorld>(ShapeCenterCopyEntity.ValueRO.self).Position;
+            float3 camera = entityManager.GetComponentData<LocalToWorld>(ShapeCenterCopyEntity.ValueRO.target_entity).Position;
+            Vector3 offset =  camera - entityManager.GetComponentData<LocalToWorld>(ShapeCenterCopyEntity.ValueRO.self).Position;
 
 
 
@@ -84,12 +84,16 @@ public partial class ShapeCenterCopyEntitySystem : SystemBase
                 CapsuleCollider* colliderptr = (CapsuleCollider*)collider.ValueRW.ColliderPtr;
 
                 var new_geometry = colliderptr->Geometry;
-        
+                
                 new_geometry.Vertex0 = new Vector3(offset.x, new_geometry.Vertex0.y, offset.z);
-                new_geometry.Vertex1 = new Vector3(offset.x, new_geometry.Vertex1.y, offset.z);
+                new_geometry.Vertex1 = new Vector3(offset.x, new_geometry.Vertex0.y + offset.y, offset.z);
+                //Debug.Log(new_geometry.Vertex0.y);
+                //Debug.Log(new_geometry.Vertex0.y + offset.y);
+                //new_geometry.Vertex0 = new Vector3(new_geometry.Vertex0.x, new_geometry.Vertex0.y, new_geometry.Vertex0.z);
+                //new_geometry.Vertex1 = new Vector3(new_geometry.Vertex1.x, offset.y, new_geometry.Vertex1.z);
 
                 colliderptr->Geometry = new_geometry;
-
+                
                 /// ABANDONE 
                 /// INITALEMENT PREVU POUR GERER LES MOUVEMENT DYNAMIQUE DU JOUEUR EN ADAPTANT LES PROPORTION D UNE CAPSULE A SA POSITION
                 /// TROUVE UN MEILLEUR MOYEN ?

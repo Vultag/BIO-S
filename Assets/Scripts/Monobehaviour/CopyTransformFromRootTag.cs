@@ -67,6 +67,8 @@ public class CopyTransformFromRootTag : MonoBehaviour
 
         ///j ai pas compris a quoi ca sert -> track le charControl pour le VR root
         transform.position = (Vector3)entityManager.GetComponentData<LocalToWorld>(target_entity).Position;
+        //Debug.Log(transform.position);
+        //Debug.Log((Vector3)entityManager.GetComponentData<LocalToWorld>(target_entity).Position);
 
         //Debug.Log((Vector3)entityManager.GetComponentData<LocalToWorld>(target_entity).Position);
 
