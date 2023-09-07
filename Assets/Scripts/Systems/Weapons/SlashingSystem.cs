@@ -23,7 +23,7 @@ using Matrix4x4 = UnityEngine.Matrix4x4;
 
 
 //[AlwaysSynchronizeSystem]
-[UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
+//[UpdateInGroup(typeof(FixedStepSimulationSystemGroup), OrderLast = true)]
 ///change qq chose ? j avais un warning qui dit ca sert a rien
 ///[UpdateAfter(typeof(PhysicsSimulationGroup))]
 
@@ -137,13 +137,13 @@ public partial class SlashingSystem : SystemBase
 
         //Debug.Log(triggerJob.detect_entity.Value);
 
-        
+
         if (entityManager.Exists(triggerJob.zombie_entity.Value))
         {
 
             // A METTRE DANS UN JOB
 
-            foreach ((var katana_slash_data,Entity entity) in SystemAPI.Query<RefRO<SlashingItemData>>().WithEntityAccess())
+            foreach ((var katana_slash_data, Entity entity) in SystemAPI.Query<RefRO<SlashingItemData>>().WithEntityAccess())
             {
 
                 Entity blood_ps = katana_slash_data.ValueRO.blood_particle;
@@ -151,7 +151,7 @@ public partial class SlashingSystem : SystemBase
                 Entity kat_entity = entity;
 
                 Entities.WithoutBurst()
-               .ForEach((Entity entity,ParticleSystem particle, ref Translation trans) =>
+               .ForEach((Entity entity, ParticleSystem particle, ref Translation trans) =>
                {
                    if (entity == blood_ps)
                    {
@@ -163,7 +163,7 @@ public partial class SlashingSystem : SystemBase
                    }
 
                }).Run();
-                
+
                 ///VFX graph est completement bugger pt etre reessayer a l avenir
                 /*
                 Entities.WithoutBurst()
@@ -183,7 +183,7 @@ public partial class SlashingSystem : SystemBase
 
                 }).Run();
                 */
-                
+
             }
 
 
@@ -212,7 +212,7 @@ public partial class SlashingSystem : SystemBase
 
             PhysicsVelocity new_vel = new PhysicsVelocity();
 
-            entityManager.SetComponentData<PhysicsVelocity>(entityB, new_vel); 
+            entityManager.SetComponentData<PhysicsVelocity>(entityB, new_vel);
 
             CheckForSlashingBodyPresenceData slashing_check = new CheckForSlashingBodyPresenceData();
 
@@ -227,7 +227,7 @@ public partial class SlashingSystem : SystemBase
             new RigidTransform(Quaternion.Inverse(relative_rot), Quaternion.Inverse(entityManager.GetComponentData<LocalToWorld>(entityB).Rotation) * (triggerJob.collision_point.Value - entityManager.GetComponentData<LocalToWorld>(entityB).Position)) //la rot c la rotation du joint ? et la pos c la pos relative a l autre 
             );
 
-            
+
 
 
             ComponentType[] componentTypes =
@@ -250,7 +250,7 @@ public partial class SlashingSystem : SystemBase
             });
 
             // SOFT CONSTRAINTS
-            
+
             constraints.Add(new Constraint
             {
                 ConstrainedAxes = new bool3(true, true, false),//slide,pull,starf
@@ -261,7 +261,7 @@ public partial class SlashingSystem : SystemBase
                 SpringDamping = 1200f,//2530.126f,
                 MaxImpulse = float.PositiveInfinity,//new float3(math.INFINITY, math.INFINITY, math.INFINITY),
             });
-            
+
             // SOFT CONSTRAINTS
             constraints.Add(new Constraint
             {
@@ -273,7 +273,7 @@ public partial class SlashingSystem : SystemBase
                 SpringDamping = 120f,//2530.126f,
                 MaxImpulse = float.PositiveInfinity,//new float3(math.INFINITY, math.INFINITY, math.INFINITY),
             });
-            
+
             snap_joint.SetConstraints(constraints);
 
             Entity jointEntity = entityManager.CreateEntity(componentTypes);
@@ -303,7 +303,7 @@ public partial class SlashingSystem : SystemBase
 
 
         }
-        
+
     }
 
     private void _deal_damage(Entity zombie_part, float impulse)
@@ -362,9 +362,9 @@ public partial class SlashingSystem : SystemBase
             if (entityManager.HasComponent<IKBodyPartData>(body_part.AllZombieEntities))
             {
 
-                if(zombie_part == body_part.AllZombieEntities)
+                if (zombie_part == body_part.AllZombieEntities)
                 {
-                   localized_Ik_factor = 2f;
+                    localized_Ik_factor = 2f;
                 }
 
                 //Debug.Log(entityManager.GetComponentData<IKBodyPartData>(body_part.AllZombieEntities).IK_master_entity);
@@ -418,7 +418,7 @@ public partial class SlashingSystem : SystemBase
             ecb.SetComponent<URPMaterialPropertyBaseColor>(body_part.AllZombieEntities, full_new_color);
 
         }
-        
+
 
         //Debug.Log(impulse);
 
@@ -451,7 +451,7 @@ public partial class SlashingSystem : SystemBase
 
         if (new_brain_data.zombie_HP < 10f && !new_brain_data.is_dead)
         {
-            
+
             foreach (ZombieBrainElementData body_part in entityManager.GetBuffer<ZombieBrainElementData>(entityManager.GetComponentData<ZombiePartData>(zombie_part).zombie_brain_entity))
             {
 
@@ -469,7 +469,7 @@ public partial class SlashingSystem : SystemBase
 
                     ecb.SetComponent<IKMasterBodyPartData>(entityManager.GetComponentData<IKBodyPartData>(body_part.AllZombieEntities).IK_master_entity, new_ik_master_data);
 
-                     
+
                 }
                 else if (entityManager.HasComponent<ZombieBalanceData>(body_part.AllZombieEntities))
                 {
@@ -483,11 +483,11 @@ public partial class SlashingSystem : SystemBase
                     //Debug.Log(new_zombie_balance_data.limb_hp_ratio);
 
                     ecb.SetComponent<ZombieBalanceData>(body_part.AllZombieEntities, new_zombie_balance_data);
-                    
+
                 }
 
             }
-            
+
             new_brain_data.is_dead = true;
 
             //ecbBS.DestroyEntity(new_brain_data.zombie_root);
@@ -503,15 +503,15 @@ public partial class SlashingSystem : SystemBase
             ecb.AddComponent<DelayedDestroyData>(new_brain_data.zombie_root, destroy_data);
             */
 
-                //Debug.Break();
-                /*
-                foreach (ZombieBrainElementData body_part in entityManager.GetBuffer<ZombieBrainElementData>(entityManager.GetComponentData<ZombiePartData>(zombie_part).zombie_brain_entity))
-                {
+            //Debug.Break();
+            /*
+            foreach (ZombieBrainElementData body_part in entityManager.GetBuffer<ZombieBrainElementData>(entityManager.GetComponentData<ZombiePartData>(zombie_part).zombie_brain_entity))
+            {
 
-                   // ecbBS.DestroyEntity(body_part.AllZombieEntities);
+               // ecbBS.DestroyEntity(body_part.AllZombieEntities);
 
-                }
-                */
+            }
+            */
 
         }
 

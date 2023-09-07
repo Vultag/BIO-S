@@ -14,7 +14,7 @@ using Unity.Physics.Systems;
 
 //[AlwaysSynchronizeSystem]
 
-[UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
+//[UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
 //[UpdateAfter(typeof(PhysicsSimulationGroup))]
 
 public partial class ZombieBalanceSystem : SystemBase

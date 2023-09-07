@@ -74,7 +74,7 @@ internal class DeformationSampleBaker : Baker<DeformationsSampleAuthoring>
 
 //[RequireMatchingQueriesForUpdate]
 
-[UpdateAfter(typeof(FixedStepSimulationSystemGroup))]
+//[UpdateAfter(typeof(FixedStepSimulationSystemGroup))]
 
 public partial struct ComputeSkinMatricesBakingSystem : ISystem
 {

@@ -21,7 +21,7 @@ using System;
 using Unity.Burst;
 
 
-[UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
+//[UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
 ///[UpdateBefore(typeof(FixedStepSimulationSystemGroup))]
 
 

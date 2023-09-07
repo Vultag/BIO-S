@@ -7,7 +7,9 @@ using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine.UI;
 
-[AlwaysSynchronizeSystem]
+//[AlwaysSynchronizeSystem]
+//[UpdateInGroup(typeof(FixedStepSimulationSystemGroup),OrderLast = true)]
+//[UpdateAfter(typeof(CharacterControllerSystem))]
 public partial class ZombieHipsReferenceSystem : SystemBase
 {
 
@@ -22,13 +24,16 @@ public partial class ZombieHipsReferenceSystem : SystemBase
     protected override void OnUpdate()
     {
 
-        Entities.WithoutBurst()
-        .ForEach((ref TransformAspect trans, in ZombieHipsReferencePointData ref_point) =>
+        Entities
+            .WithAll<LocalToWorld, LocalToParent>()
+        .ForEach((Entity entity ,in ZombieHipsReferencePointData ref_point) =>
         {
 
-            trans.WorldPosition = entityManager.GetComponentData<LocalToWorld>(ref_point.ZombieTorsoEntity).Position;
+            var trans = SystemAPI.GetAspectRW<TransformAspect>(entity);
 
-            Quaternion target_rot = entityManager.GetComponentData<LocalToWorld>(ref_point.ZombieTorsoEntity).Rotation;
+            trans.WorldPosition = SystemAPI.GetAspectRO<TransformAspect>(ref_point.ZombieTorsoEntity).WorldPosition;
+
+            Quaternion target_rot = SystemAPI.GetAspectRO<TransformAspect>(ref_point.ZombieTorsoEntity).WorldRotation;
 
 
             float angleInDegrees;
@@ -42,7 +47,7 @@ public partial class ZombieHipsReferenceSystem : SystemBase
 
 
 
-        }).Run();
+        }).Schedule();
 
     }
 

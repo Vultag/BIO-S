@@ -21,7 +21,7 @@ using Unity.Rendering;
 //[AlwaysSynchronizeSystem]
 
 
-[UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
+//[UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
 ///[UpdateBefore(typeof(FixedStepSimulationSystemGroup))]
 
 //[UpdateAfter(typeof(EndFramePhysicsSystem))]

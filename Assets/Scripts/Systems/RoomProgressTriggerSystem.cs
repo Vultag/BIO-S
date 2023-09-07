@@ -21,7 +21,7 @@ using static Unity.Physics.Math;
 
 
 //[AlwaysSynchronizeSystem]
-[UpdateBefore(typeof(FixedStepSimulationSystemGroup))]
+///[UpdateBefore(typeof(FixedStepSimulationSystemGroup))]
 
 //[UpdateAfter(typeof(FixedStepSimulationSystemGroup))]
 

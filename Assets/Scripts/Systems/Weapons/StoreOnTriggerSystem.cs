@@ -21,7 +21,7 @@ using static Unity.Physics.Math;
 
 
 //[AlwaysSynchronizeSystem]
-[UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
+//[UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
 ///[UpdateBefore(typeof(FixedStepSimulationSystemGroup))]
 //[UpdateAfter(typeof(EndFramePhysicsSystem))]
 public partial class StoreOnTriggerSystem : SystemBase

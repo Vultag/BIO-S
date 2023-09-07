@@ -51,18 +51,23 @@ public partial class AvatarFingerSystem : SystemBase
     protected override void OnUpdate()
     {
 
-        Entities.WithoutBurst()
-        .ForEach((ref PhysicsVelocity vel, ref TransformAspect trans, in LocalToWorld ltw, in AvatarFingerData fingerdata, in PhysicsMass mass) =>
+        Entities
+        .ForEach((ref PhysicsVelocity vel, in LocalToWorld ltw, in AvatarFingerData fingerdata, in PhysicsMass mass) =>
         {
-            
+
+
+            //var trans = SystemAPI.GetAspectRW<TransformAspect>(entity);
+            //var vel = SystemAPI.GetComponent<PhysicsVelocity>(entity);
+
+
             //if (entityManager.GetComponentData<GrabDetectData>(fingerdata.hand_root).grabbing == false)
             {
 
                 var delta_rot_target = Quaternion.identity;
                 if (fingerdata.upper_finger_bone != Entity.Null)
-                   delta_rot_target = (Quaternion)math.mul((Quaternion)entityManager.GetComponentData<LocalToWorld>(fingerdata.upper_finger_bone).Rotation * entityManager.GetComponentData<Rotation>(fingerdata.fantome_correspondant).Value, Quaternion.Inverse(ltw.Rotation)); //Quaternion.Inverse(Quaternion.LookRotation(ltw.Forward, look_up));
+                   delta_rot_target = (Quaternion)math.mul((Quaternion)SystemAPI.GetComponent<LocalToWorld>(fingerdata.upper_finger_bone).Rotation * SystemAPI.GetComponent<Rotation>(fingerdata.fantome_correspondant).Value, Quaternion.Inverse(ltw.Rotation)); //Quaternion.Inverse(Quaternion.LookRotation(ltw.Forward, look_up));
                 else
-                    delta_rot_target = (Quaternion)math.mul(entityManager.GetComponentData<LocalToWorld>(fingerdata.fantome_correspondant).Rotation, Quaternion.Inverse(ltw.Rotation)); //Quaternion.Inverse(Quaternion.LookRotation(ltw.Forward, look_up));
+                    delta_rot_target = (Quaternion)math.mul(SystemAPI.GetComponent<LocalToWorld>(fingerdata.fantome_correspondant).Rotation, Quaternion.Inverse(ltw.Rotation)); //Quaternion.Inverse(Quaternion.LookRotation(ltw.Forward, look_up));
 
 
                 float finger_angleInDegrees;
@@ -80,12 +85,14 @@ public partial class AvatarFingerSystem : SystemBase
                 Vector3 finger_angularDisplacement = (0.9f * Mathf.Deg2Rad * finger_angleInDegrees * 30/*100*/) * finger_rotationAxis.normalized;
 
 
-                PhysicsComponentExtensions.SetAngularVelocityWorldSpace(ref vel, mass, trans.WorldRotation, finger_angularDisplacement);
+                PhysicsComponentExtensions.SetAngularVelocityWorldSpace(ref vel, mass, ltw.Rotation, finger_angularDisplacement);
 
             }
 
+            //SystemAPI.SetComponent<PhysicsVelocity>(entity,vel);
 
-        }).Run();
+
+        }).Schedule();
 
 
 

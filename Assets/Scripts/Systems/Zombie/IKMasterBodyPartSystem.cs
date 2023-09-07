@@ -24,8 +24,8 @@ using Unity.Physics.Systems;
 [UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
 
 //[UpdateInGroup(typeof(SimulationSystemGroup))]
-[UpdateBefore(typeof(PhysicsSimulationGroup))]
-[UpdateAfter(typeof(FollowEntitySystem))]
+///[UpdateBefore(typeof(PhysicsSimulationGroup))]
+///[UpdateAfter(typeof(FollowEntitySystem))]
 
 public partial class IKMasterBodyPartSystem : SystemBase
 {
@@ -70,33 +70,33 @@ public partial class IKMasterBodyPartSystem : SystemBase
     {
 
         
-                Entities.WithoutBurst()
+                this.Dependency = Entities
         .ForEach((ref IKMasterBodyPartData ikmaster, in TransformAspect trans) =>
         {
 
 
-            ikmaster.upper_limb_0_lenght = entityManager.GetComponentData<IKBodyPartData>(ikmaster.upper_limb_0).limb_lenght;
-            ikmaster.upper_limb_1_lenght = entityManager.GetComponentData<IKBodyPartData>(ikmaster.upper_limb_1).limb_lenght;
+            ikmaster.upper_limb_0_lenght = SystemAPI.GetComponent<IKBodyPartData>(ikmaster.upper_limb_0).limb_lenght;
+            ikmaster.upper_limb_1_lenght = SystemAPI.GetComponent<IKBodyPartData>(ikmaster.upper_limb_1).limb_lenght;
             ikmaster.max_limbs_reach = ikmaster.upper_limb_0_lenght + ikmaster.upper_limb_1_lenght;
 
-            ikmaster.upper_limb_0_rot_offset = (Vector3)entityManager.GetComponentData<IKBodyPartData>(ikmaster.upper_limb_0).rotation_offset;
-            ikmaster.upper_limb_1_rot_offset = (Vector3)entityManager.GetComponentData<IKBodyPartData>(ikmaster.upper_limb_1).rotation_offset;
+            ikmaster.upper_limb_0_rot_offset = (Vector3)SystemAPI.GetComponent<IKBodyPartData>(ikmaster.upper_limb_0).rotation_offset;
+            ikmaster.upper_limb_1_rot_offset = (Vector3)SystemAPI.GetComponent<IKBodyPartData>(ikmaster.upper_limb_1).rotation_offset;
 
-            ikmaster.upper_limb_0_vel = entityManager.GetComponentData<PhysicsVelocity>(ikmaster.upper_limb_0);
-            ikmaster.upper_limb_1_vel = entityManager.GetComponentData<PhysicsVelocity>(ikmaster.upper_limb_1);
+            ikmaster.upper_limb_0_vel = SystemAPI.GetComponent<PhysicsVelocity>(ikmaster.upper_limb_0);
+            ikmaster.upper_limb_1_vel = SystemAPI.GetComponent<PhysicsVelocity>(ikmaster.upper_limb_1);
 
-            ikmaster.upper_limb_0_mass = entityManager.GetComponentData<PhysicsMass>(ikmaster.upper_limb_0);
-            ikmaster.upper_limb_1_mass = entityManager.GetComponentData<PhysicsMass>(ikmaster.upper_limb_1);
-
-
-        }).Run();
+            ikmaster.upper_limb_0_mass = SystemAPI.GetComponent<PhysicsMass>(ikmaster.upper_limb_0);
+            ikmaster.upper_limb_1_mass = SystemAPI.GetComponent<PhysicsMass>(ikmaster.upper_limb_1);
 
 
+        }).Schedule(this.Dependency);
 
-        
-        
 
-        Entities.WithoutBurst()
+
+
+
+
+        this.Dependency = Entities
         .ForEach((ref IKBodyPartData ikbody, in TransformAspect trans, in LocalToWorld ltw) =>
         {
 
@@ -108,39 +108,40 @@ public partial class IKMasterBodyPartSystem : SystemBase
 
 
 
-        }).Run();
+        }).Schedule(this.Dependency);
 
 
 
-        Entities.WithoutBurst()
+        this.Dependency = Entities
         .ForEach((ref IKMasterBodyPartData ikmaster) =>
         {
 
             // pos de la target !! : Vector3(1.39059997,1.5,-0.756400108)
 
 
-            ikmaster.upper_limb_0_pivot = (Vector3)entityManager.GetComponentData<IKBodyPartData>(ikmaster.upper_limb_0).ikbody_pivot_point;
-            ikmaster.upper_limb_1_pivot = (Vector3)entityManager.GetComponentData<IKBodyPartData>(ikmaster.upper_limb_1).ikbody_pivot_point;
+
+            ikmaster.upper_limb_0_pivot = (Vector3)SystemAPI.GetComponent<IKBodyPartData>(ikmaster.upper_limb_0).ikbody_pivot_point;
+            ikmaster.upper_limb_1_pivot = (Vector3)SystemAPI.GetComponent<IKBodyPartData>(ikmaster.upper_limb_1).ikbody_pivot_point;
 
             //a retirer pour plus de perf
-            ikmaster.upper_limb_0_rot_offset = (Vector3)entityManager.GetComponentData<IKBodyPartData>(ikmaster.upper_limb_0).rotation_offset;
-            ikmaster.upper_limb_1_rot_offset = (Vector3)entityManager.GetComponentData<IKBodyPartData>(ikmaster.upper_limb_1).rotation_offset;
+            ikmaster.upper_limb_0_rot_offset = (Vector3)SystemAPI.GetComponent<IKBodyPartData>(ikmaster.upper_limb_0).rotation_offset;
+            ikmaster.upper_limb_1_rot_offset = (Vector3)SystemAPI.GetComponent<IKBodyPartData>(ikmaster.upper_limb_1).rotation_offset;
 
 
-            Vector3 limb_1_look_dir = (Vector3)entityManager.GetComponentData<LocalToWorld>(ikmaster.target_pos_entity).Position - ikmaster.upper_limb_1_pivot;
-            Vector3 limb_0_look_dir = (Vector3)entityManager.GetComponentData<LocalToWorld>(ikmaster.target_pos_entity).Position - ikmaster.upper_limb_0_pivot;
+            Vector3 limb_1_look_dir = (Vector3)SystemAPI.GetComponent<LocalToWorld>(ikmaster.target_pos_entity).Position - ikmaster.upper_limb_1_pivot;
+            Vector3 limb_0_look_dir = (Vector3)SystemAPI.GetComponent<LocalToWorld>(ikmaster.target_pos_entity).Position - ikmaster.upper_limb_0_pivot;
           
-            Vector3 limb_0_look_up = (Quaternion)entityManager.GetComponentData<LocalToWorld>(ikmaster.upper_limb_0).Rotation * ikmaster.bend_orientation;
-            Vector3 limb_1_look_up = (Quaternion)entityManager.GetComponentData<LocalToWorld>(ikmaster.upper_limb_1).Rotation * ikmaster.bend_orientation;//Vector3.forward;
+            Vector3 limb_0_look_up = (Quaternion)SystemAPI.GetComponent<LocalToWorld>(ikmaster.upper_limb_0).Rotation * ikmaster.bend_orientation;
+            Vector3 limb_1_look_up = (Quaternion)SystemAPI.GetComponent<LocalToWorld>(ikmaster.upper_limb_1).Rotation * ikmaster.bend_orientation;//Vector3.forward;
             
 
             //l orientation du limb1 sera toujour vers le target
-            var limb_0_effecive_rot = ((Quaternion)Quaternion.LookRotation(limb_0_look_dir.normalized, limb_0_look_up) * Quaternion.Euler(ikmaster.upper_limb_0_rot_offset)) * Quaternion.Inverse(entityManager.GetComponentData<LocalToWorld>(ikmaster.upper_limb_0).Rotation);
+            var limb_0_effecive_rot = ((Quaternion)Quaternion.LookRotation(limb_0_look_dir.normalized, limb_0_look_up) * Quaternion.Euler(ikmaster.upper_limb_0_rot_offset)) * Quaternion.Inverse(SystemAPI.GetComponent<LocalToWorld>(ikmaster.upper_limb_0).Rotation);
 
-            var limb_1_effecive_rot = ((Quaternion)quaternion.LookRotation(limb_1_look_dir.normalized, limb_1_look_up) * Quaternion.Euler(ikmaster.upper_limb_1_rot_offset)) * Quaternion.Inverse(entityManager.GetComponentData<LocalToWorld>(ikmaster.upper_limb_1).Rotation);
+            var limb_1_effecive_rot = ((Quaternion)quaternion.LookRotation(limb_1_look_dir.normalized, limb_1_look_up) * Quaternion.Euler(ikmaster.upper_limb_1_rot_offset)) * Quaternion.Inverse(SystemAPI.GetComponent<LocalToWorld>(ikmaster.upper_limb_1).Rotation);
 
 
-            limb_1_effecive_rot = quaternion.AxisAngle((Quaternion)entityManager.GetComponentData<LocalToWorld>(ikmaster.upper_limb_1).Rotation * ikmaster.bend_orientation, 2f * Mathf.Clamp(ikmaster.max_limbs_reach - Vector3.Distance((Vector3)entityManager.GetComponentData<LocalToWorld>(ikmaster.target_pos_entity).Position, ikmaster.upper_limb_1_pivot), 0f, 10f) * 1 / ikmaster.max_limbs_reach) * limb_1_effecive_rot;
+            limb_1_effecive_rot = quaternion.AxisAngle((Quaternion)SystemAPI.GetComponent<LocalToWorld>(ikmaster.upper_limb_1).Rotation * ikmaster.bend_orientation, 2f * Mathf.Clamp(ikmaster.max_limbs_reach - Vector3.Distance((Vector3)SystemAPI.GetComponent<LocalToWorld>(ikmaster.target_pos_entity).Position, ikmaster.upper_limb_1_pivot), 0f, 10f) * 1 / ikmaster.max_limbs_reach) * limb_1_effecive_rot;
 
 
 
@@ -175,16 +176,16 @@ public partial class IKMasterBodyPartSystem : SystemBase
 
 
             var new_body_data_0 = new IKBodyPartData();
-            new_body_data_0 = entityManager.GetComponentData<IKBodyPartData>(ikmaster.upper_limb_0);
+            new_body_data_0 = SystemAPI.GetComponent<IKBodyPartData>(ikmaster.upper_limb_0);
             new_body_data_0.designated_anglevel = limb_0_angularDisplacement;
-            entityManager.SetComponentData<IKBodyPartData>(ikmaster.upper_limb_0, new_body_data_0);
+            SystemAPI.SetComponent<IKBodyPartData>(ikmaster.upper_limb_0, new_body_data_0);
             var new_body_data_1 = new IKBodyPartData();
-            new_body_data_1 = entityManager.GetComponentData<IKBodyPartData>(ikmaster.upper_limb_1);
+            new_body_data_1 = SystemAPI.GetComponent<IKBodyPartData>(ikmaster.upper_limb_1);
             new_body_data_1.designated_anglevel = limb_1_angularDisplacement;
-            entityManager.SetComponentData<IKBodyPartData>(ikmaster.upper_limb_1, new_body_data_1);
+            SystemAPI.SetComponent<IKBodyPartData>(ikmaster.upper_limb_1, new_body_data_1);
             
 
-        }).Run();
+        }).Schedule(this.Dependency);
 
     }
 

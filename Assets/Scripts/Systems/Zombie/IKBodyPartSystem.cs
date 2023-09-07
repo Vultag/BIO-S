@@ -47,14 +47,14 @@ public partial class IKBodyPartSystem : SystemBase
     protected override void OnUpdate()
     {
 
-        Entities.WithoutBurst()
+        Entities
         .ForEach((ref PhysicsVelocity vel, ref IKBodyPartData ikbody, in LocalToWorld ltw, in PhysicsMass mass) =>
         {
 
             PhysicsComponentExtensions.SetAngularVelocityWorldSpace(ref vel, mass, ltw.Rotation, ikbody.designated_anglevel);
 
 
-        }).Run();
+        }).Schedule();
 
     }
 
