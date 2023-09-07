@@ -594,6 +594,11 @@ public partial class XRInputsActionSystem : SystemBase
                 .ForEach((Entity entity, in AvatarFingerData fingerdata) =>
                 {
 
+                    var trans = SystemAPI.GetAspectRW<TransformAspect>(entity);
+
+                    trans.WorldPosition = SystemAPI.GetAspectRO<TransformAspect>(fingerdata.fantome_correspondant).WorldPosition;
+                    trans.WorldRotation = SystemAPI.GetAspectRO<TransformAspect>(fingerdata.fantome_correspondant).WorldRotation;
+
                     //y faut pas que ca disable les childs du finger
                     commandBufferSystem.RemoveComponent<Disabled>(entity);
 
@@ -614,6 +619,11 @@ public partial class XRInputsActionSystem : SystemBase
                     .WithAll<LeftHandTag>()
                 .ForEach((Entity entity, in AvatarFingerData fingerdata) =>
                 {
+
+                    var trans = SystemAPI.GetAspectRW<TransformAspect>(entity);
+
+                    trans.WorldPosition = SystemAPI.GetAspectRO<TransformAspect>(fingerdata.fantome_correspondant).WorldPosition;
+                    trans.WorldRotation = SystemAPI.GetAspectRO<TransformAspect>(fingerdata.fantome_correspondant).WorldRotation;
 
                     //y faut pas que ca disable les childs du finger
                     commandBufferSystem.RemoveComponent<Disabled>(entity);
@@ -649,7 +659,7 @@ public partial class XRInputsActionSystem : SystemBase
 
         item.grabbed = false;
         entityManager.SetComponentData<ItemData>(item_entity, item);
-
+        //Debug.Log("drop")
         commandBufferSystem.DestroyEntity(entityManager.GetComponentData<GrabDetectData>(holding_hand).hand_grab_joint);
         
     }

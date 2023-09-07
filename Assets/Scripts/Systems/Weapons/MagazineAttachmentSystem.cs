@@ -19,7 +19,7 @@ using Unity.VisualScripting;
 //[AlwaysSynchronizeSystem]
 ///POUR TRANSFORM V1
 //[UpdateAfter(typeof(SimulationSystemGroup))]
-[UpdateAfter(typeof(FixedStepSimulationSystemGroup))]
+/////[UpdateAfter(typeof(FixedStepSimulationSystemGroup))]
 //[UpdateInGroup(typeof(BeforePhysicsSystemGroup))]
 //[UpdateAfter(typeof(FixedStepSimulationSystemGroup))]
 public partial class MagazineAttachmentSystem : SystemBase
