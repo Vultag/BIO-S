@@ -415,6 +415,7 @@ public partial struct CharacterControllerSystem : ISystem
                 float3 desiredVelocity = ccInternalData.Velocity.Linear;
                 HandleUserInput(ccComponentData, stepInput.Up, surfaceVelocity, ref ccInternalData, ref desiredVelocity);
 
+
                 // Calculate actual velocity with respect to surface
                 if (ccInternalData.SupportedState == CharacterSupportState.Supported)
                 {
@@ -470,9 +471,6 @@ public partial struct CharacterControllerSystem : ISystem
             ref CharacterControllerInternalData ccInternalData, ref float3 linearVelocity)
         {
 
-            ///CUSTOM
-            float speed = ccInternalData.Input.Speed;
-
             // Reset jumping state and unsupported velocity
             if (ccInternalData.SupportedState == CharacterSupportState.Supported)
             {
@@ -489,6 +487,12 @@ public partial struct CharacterControllerSystem : ISystem
 
                 float horizontal = ccInternalData.Input.Movement.x;
                 float vertical = ccInternalData.Input.Movement.y;
+
+
+                ///CUSTOM
+                float speed = ccInternalData.Input.Speed;
+
+
                 bool jumpRequested = ccInternalData.Input.Jumped != 0;
                 ccInternalData.Input.Jumped = 0; // "consume" the event
                 bool haveInput = (math.abs(horizontal) > float.Epsilon) || (math.abs(vertical) > float.Epsilon);
@@ -496,7 +500,7 @@ public partial struct CharacterControllerSystem : ISystem
                 {
                     float3 localSpaceMovement = forward * vertical + right * horizontal;
                     float3 worldSpaceMovement = math.rotate(quaternion.AxisAngle(up, ccInternalData.CurrentRotationAngle), localSpaceMovement);
-                    requestedMovementDirection = math.normalize(worldSpaceMovement);
+                    requestedMovementDirection = math.normalize(worldSpaceMovement) * speed;
                 }
                 shouldJump = jumpRequested && ccInternalData.SupportedState == CharacterSupportState.Supported;
             }
@@ -533,7 +537,7 @@ public partial struct CharacterControllerSystem : ISystem
                 }
                 // If unsupported then keep jump and surface momentum
                 ///CUSTOM -> remplacer 1 par speed quand j aurais reussi a transmettre la data de l input
-                linearVelocity = requestedMovementDirection * ccComponentData.MovementSpeed * 1f +
+                linearVelocity = requestedMovementDirection * ccComponentData.MovementSpeed +
                     (ccInternalData.SupportedState != CharacterSupportState.Supported ? ccInternalData.UnsupportedVelocity : float3.zero);
             }
         }

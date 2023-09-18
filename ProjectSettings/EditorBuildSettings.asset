@@ -21,6 +21,8 @@ EditorBuildSettings:
     path: Assets/Scenes/StationScene/StationSubScene.unity
     guid: 200e93b5f09074f488f61372f9cbf791
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 4b2b125b3fc12214386dda439299949b,
+      type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: aeb07ecc29f59954c8c60ace9f49ace2,
       type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 72f8e23bf6a5d2d4e98b49a57a548fe6,

@@ -22,7 +22,7 @@ using Unity.VisualScripting;
 //retire pour que le follow soit continue -> cause un probleme ?
 ///[UpdateInGroup(typeof(BeforePhysicsSystemGroup))]
 
-//[UpdateAfter(typeof(FixedStepSimulationSystemGroup))]
+//[UpdateBefore(typeof(TransformSystemGroup))]
 public partial class FollowEntitySystem : SystemBase
 {
 
@@ -37,17 +37,26 @@ public partial class FollowEntitySystem : SystemBase
     protected override void OnUpdate()
     {
 
+
+        ///set pos
         Entities
-            .WithAll<LocalToWorld,LocalToParent>()
+            .WithAll<LocalToWorld>()
         .ForEach((Entity entity, in FollowEntityData data) =>
         {
 
             var trans = SystemAPI.GetAspectRW<TransformAspect>(entity);
 
-            trans.WorldPosition = SystemAPI.GetAspectRO<TransformAspect>(data.entity_to_follow).WorldPosition;
-            trans.WorldRotation = SystemAPI.GetAspectRO<TransformAspect>(data.entity_to_follow).WorldRotation;
+            trans.WorldPosition = SystemAPI.GetAspectRW<TransformAspect>(data.entity_to_follow).WorldPosition;
+            trans.WorldRotation = SystemAPI.GetAspectRW<TransformAspect>(data.entity_to_follow).WorldRotation;
 
 
         }).Schedule();
+
+
+
     }
+
+
+
+
 }

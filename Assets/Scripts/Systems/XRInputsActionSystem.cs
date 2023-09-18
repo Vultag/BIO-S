@@ -263,7 +263,7 @@ public partial class XRInputsActionSystem : SystemBase
             m_CharacterControllerInputQuery.SetSingleton(new CharacterControllerInput
             {
                 Looking = new float2(0, 0),
-                Speed = 1f,//(math.abs(m_CharacterMovement.x) + math.abs(m_CharacterMovement.y)) * 0.5f,
+                Speed = (math.abs(m_CharacterMovement.x) + math.abs(m_CharacterMovement.y)) * 0.5f,
                 Movement = new float2(mouv_x,mouv_y),
                 Jumped = 0//m_CharacterJumped ? 1 : 0,
             });
@@ -403,7 +403,7 @@ public partial class XRInputsActionSystem : SystemBase
                         if (entityManager.GetComponentData<GrabDetectData>(fantomedata.hand_root).grabbing == false)
                         {
                             //Debug.Log(left_hand_trigger.ReadValue<float>());
-                            trans.LocalRotation = Quaternion.Slerp(Quaternion.Euler(fantomedata.open_hand_rot), Quaternion.Euler(fantomedata.close_hand_rot), left_hand_trigger.ReadValue<float>());
+                            trans.LocalRotation = Quaternion.Slerp(Quaternion.Euler(fantomedata.open_hand_rot), Quaternion.Euler(fantomedata.close_hand_rot), left_hand_trigger.ReadValue<float>()*0.8f/*ferme a 80%*/);
                         }
                         //ici faire une rot pour chaque item?
                         else
@@ -450,7 +450,7 @@ public partial class XRInputsActionSystem : SystemBase
                             Vector3 right_open = new Vector3(fantomedata.open_hand_rot.x, -fantomedata.open_hand_rot.y, -fantomedata.open_hand_rot.z);
                             Vector3 right_close = new Vector3(fantomedata.close_hand_rot.x, -fantomedata.close_hand_rot.y, -fantomedata.close_hand_rot.z);
 
-                            trans.LocalRotation = Quaternion.Slerp(Quaternion.Euler(right_open), Quaternion.Euler(right_close), right_hand_trigger.ReadValue<float>());
+                            trans.LocalRotation = Quaternion.Slerp(Quaternion.Euler(right_open), Quaternion.Euler(right_close), right_hand_trigger.ReadValue<float>() * 0.8f/*ferme a 80%*/);
                         }
                         //ici faire une rot pour chaque item?
                         else
@@ -822,7 +822,7 @@ public partial class XRInputsActionSystem : SystemBase
                 break;
 
             //SKORPION
-            case 20:
+            case 25:
 
                 //decale le mag pour pas etre rejoin tt suite
 

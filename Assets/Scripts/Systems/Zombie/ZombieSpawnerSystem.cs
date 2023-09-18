@@ -104,26 +104,27 @@ public partial class ZombieSpawnerSystem : SystemBase
                     }
 
 
-                    foreach (var balance_data in SystemAPI.Query<RefRW<ZombieBalanceData>>())
-                    {
+                        foreach (var balance_data in SystemAPI.Query<RefRW<ZombieBalanceData>>())
+                        {
 
-                        balance_data.ValueRW.zombie_target = spawner.ValueRO.player_ref_entity;
+                            balance_data.ValueRW.zombie_target = spawner.ValueRO.player_ref_entity;
 
+
+                        }
+
+
+                        foreach (var hand_follow in SystemAPI.Query<RefRW<FollowEntityData>>().WithAll<IKMasterBodyPartData>())
+                        {
+
+                            hand_follow.ValueRW.entity_to_follow = spawner.ValueRO.player_ref_entity;
+
+
+                        }
+
+                        spawner.ValueRW.respawn_timer = spawner.ValueRO.timer;
+                        spawner.ValueRW.zombie_quantity -= 1;
 
                     }
-
-
-                    foreach (var hand_follow in SystemAPI.Query<RefRW<FollowEntityData>>().WithAll<IKMasterBodyPartData>())
-                    {
-
-                        hand_follow.ValueRW.entity_to_follow = spawner.ValueRO.player_ref_entity;
-
-                    }
-
-                    spawner.ValueRW.respawn_timer = spawner.ValueRO.timer;
-                    spawner.ValueRW.zombie_quantity -= 1;
-
-                }
                     else
                     {
                         spawner.ValueRW.active = false;

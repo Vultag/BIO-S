@@ -2028,7 +2028,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693930613769333627}
   m_LocalRotation: {x: -0, y: 0.65489656, z: -0, w: 0.7557185}
-  m_LocalPosition: {x: 2.9789615, y: -0.5899999, z: 57.80612}
+  m_LocalPosition: {x: 3.016, y: -0.5899999, z: 57.407}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4096,7 +4096,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ShapeType: 0
   m_PrimitiveCenter:
-    x: 5.2
+    x: 5.4
     y: 1.92
     z: 3
   m_PrimitiveSize:
@@ -4367,6 +4367,7 @@ GameObject:
   - component: {fileID: 2704698496695418339}
   - component: {fileID: 5430492771228399689}
   - component: {fileID: 1324678581068965146}
+  - component: {fileID: 5952911881312668485}
   m_Layer: 0
   m_Name: funnel_mesh
   m_TagString: Untagged
@@ -4455,7 +4456,7 @@ MonoBehaviour:
   m_ShapeType: 0
   m_PrimitiveCenter:
     x: -0.04
-    y: 2.98
+    y: 7.24
     z: -3.27
   m_PrimitiveSize:
     x: 5.0697527
@@ -4598,7 +4599,7 @@ MonoBehaviour:
   m_ShapeType: 0
   m_PrimitiveCenter:
     x: 0.04
-    y: 2.98
+    y: 7.24
     z: 3.27
   m_PrimitiveSize:
     x: 5.0697527
@@ -4856,6 +4857,149 @@ MonoBehaviour:
         Category29: 0
         Category30: 0
         Category31: 0
+    m_CustomMaterialTags:
+      m_Override: 0
+      m_Value:
+        Tag00: 0
+        Tag01: 0
+        Tag02: 0
+        Tag03: 0
+        Tag04: 0
+        Tag05: 0
+        Tag06: 0
+        Tag07: 0
+    m_SerializedVersion: 1
+  m_SerializedVersion: 1
+--- !u!114 &5952911881312668485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2932320836234117658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b275e5f92732148048d7b77e264ac30e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShapeType: 0
+  m_PrimitiveCenter:
+    x: 2.66
+    y: 14.29
+    z: 0
+  m_PrimitiveSize:
+    x: 2
+    y: 0.56
+    z: 2
+  m_PrimitiveOrientation:
+    Value:
+      x: 0
+      y: 0
+      z: 10.18
+    RotationOrder: 4
+  m_Capsule:
+    Height: 2
+    Radius: 1
+    Axis: 2
+  m_Cylinder:
+    Height: 0.56
+    Radius: 1
+    Axis: 1
+  m_CylinderSideCount: 20
+  m_SphereRadius: 1
+  m_MinimumSkinnedVertexWeight: 0.1
+  m_ConvexHullGenerationParameters:
+    m_SimplificationTolerance: 0.015
+    m_BevelRadius: 0
+    m_MinimumAngle: 2.5000002
+  m_CustomMesh: {fileID: 0}
+  m_ForceUnique: 0
+  m_Material:
+    m_SupportsTemplate: 1
+    m_Template: {fileID: 0}
+    m_CollisionResponse:
+      m_Override: 0
+      m_Value: 0
+    m_Friction:
+      m_Override: 0
+      m_Value:
+        Value: 0
+        CombineMode: 0
+    m_Restitution:
+      m_Override: 0
+      m_Value:
+        Value: 0
+        CombineMode: 2
+    m_BelongsToCategories:
+      m_Override: 0
+      m_Value:
+        Category00: 1
+        Category01: 1
+        Category02: 1
+        Category03: 1
+        Category04: 1
+        Category05: 1
+        Category06: 1
+        Category07: 1
+        Category08: 1
+        Category09: 1
+        Category10: 1
+        Category11: 1
+        Category12: 1
+        Category13: 1
+        Category14: 1
+        Category15: 1
+        Category16: 1
+        Category17: 1
+        Category18: 1
+        Category19: 1
+        Category20: 1
+        Category21: 1
+        Category22: 1
+        Category23: 1
+        Category24: 1
+        Category25: 1
+        Category26: 1
+        Category27: 1
+        Category28: 1
+        Category29: 1
+        Category30: 1
+        Category31: 1
+    m_CollidesWithCategories:
+      m_Override: 0
+      m_Value:
+        Category00: 1
+        Category01: 1
+        Category02: 1
+        Category03: 1
+        Category04: 1
+        Category05: 1
+        Category06: 1
+        Category07: 1
+        Category08: 1
+        Category09: 1
+        Category10: 1
+        Category11: 1
+        Category12: 1
+        Category13: 1
+        Category14: 1
+        Category15: 1
+        Category16: 1
+        Category17: 1
+        Category18: 1
+        Category19: 1
+        Category20: 1
+        Category21: 1
+        Category22: 1
+        Category23: 1
+        Category24: 1
+        Category25: 1
+        Category26: 1
+        Category27: 1
+        Category28: 1
+        Category29: 1
+        Category30: 1
+        Category31: 1
     m_CustomMaterialTags:
       m_Override: 0
       m_Value:
@@ -10428,7 +10572,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6689731228684337272}
   m_LocalRotation: {x: 0.4771937, y: 0.521811, z: -0.52180916, w: -0.47719458}
-  m_LocalPosition: {x: 5.410806, y: 0.3214271, z: 58.620514}
+  m_LocalPosition: {x: 5.410806, y: 0.3214271, z: 57.792}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10833,7 +10977,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7840016395614130367}
   m_LocalRotation: {x: 0.35355046, y: 0.61237466, z: -0.61237305, w: -0.35355154}
-  m_LocalPosition: {x: 5.0129066, y: -0.38484287, z: 58.620514}
+  m_LocalPosition: {x: 5.0129066, y: -0.38484287, z: 57.792}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11459,7 +11603,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9054566956922941530}
   m_LocalRotation: {x: 0.19896477, y: 0.6785379, z: -0.67853653, w: -0.19896628}
-  m_LocalPosition: {x: 5.9180007, y: -0.3900001, z: 58.620514}
+  m_LocalPosition: {x: 5.9180007, y: -0.3900001, z: 57.792}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17214,6 +17358,11 @@ PrefabInstance:
       propertyPath: PositionInConnectedEntity.z
       value: -0.0377565
       objectReference: {fileID: 0}
+    - target: {fileID: 5280816422145240544, guid: e4f4977a30ba2234386e10e3943067b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5898206688620618402, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
       propertyPath: PositionInConnectedEntity.x
@@ -17259,6 +17408,11 @@ PrefabInstance:
       propertyPath: PositionInConnectedEntity.z
       value: 0.0017538443
       objectReference: {fileID: 0}
+    - target: {fileID: 7245460855547649005, guid: e4f4977a30ba2234386e10e3943067b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7414933442782340832, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
       propertyPath: PositionInConnectedEntity.z
@@ -17272,7 +17426,7 @@ PrefabInstance:
     - target: {fileID: 8311088176823498938, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.105
+      value: 10.99
       objectReference: {fileID: 0}
     - target: {fileID: 8311088176823498938, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
@@ -17282,7 +17436,7 @@ PrefabInstance:
     - target: {fileID: 8311088176823498938, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 52.707
+      value: 53.11
       objectReference: {fileID: 0}
     - target: {fileID: 8311088176823498938, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
@@ -25312,11 +25466,165 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8506569617612501138, guid: d324de115c4dff845bee7b7f166883c4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2647211758135124163, guid: d324de115c4dff845bee7b7f166883c4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8963997420325923707}
   m_SourcePrefab: {fileID: 100100000, guid: d324de115c4dff845bee7b7f166883c4, type: 3}
+--- !u!1 &1389451277536423811 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2647211758135124163, guid: d324de115c4dff845bee7b7f166883c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4032018552518397760}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8963997420325923707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389451277536423811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b275e5f92732148048d7b77e264ac30e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShapeType: 0
+  m_PrimitiveCenter:
+    x: 0.00000035762787
+    y: 4.000014
+    z: 3.000001
+  m_PrimitiveSize:
+    x: 0.30001336
+    y: 9.999979
+    z: 6.0000067
+  m_PrimitiveOrientation:
+    Value:
+      x: -0
+      y: 0
+      z: 0
+    RotationOrder: 4
+  m_Capsule:
+    Height: 9.999979
+    Radius: 3.0000033
+    Axis: 1
+  m_Cylinder:
+    Height: 0.30001336
+    Radius: 4.9999895
+    Axis: 0
+  m_CylinderSideCount: 20
+  m_SphereRadius: 4.9999895
+  m_MinimumSkinnedVertexWeight: 0.1
+  m_ConvexHullGenerationParameters:
+    m_SimplificationTolerance: 0.1499997
+    m_BevelRadius: 0
+    m_MinimumAngle: 2.5000002
+  m_CustomMesh: {fileID: 0}
+  m_ForceUnique: 0
+  m_Material:
+    m_SupportsTemplate: 1
+    m_Template: {fileID: 11400000, guid: cf3e57d7860e96449b97cbae98bb1ba5, type: 2}
+    m_CollisionResponse:
+      m_Override: 0
+      m_Value: 0
+    m_Friction:
+      m_Override: 0
+      m_Value:
+        Value: 0.5
+        CombineMode: 0
+    m_Restitution:
+      m_Override: 0
+      m_Value:
+        Value: 0
+        CombineMode: 2
+    m_BelongsToCategories:
+      m_Override: 0
+      m_Value:
+        Category00: 1
+        Category01: 1
+        Category02: 1
+        Category03: 1
+        Category04: 1
+        Category05: 1
+        Category06: 1
+        Category07: 1
+        Category08: 1
+        Category09: 1
+        Category10: 1
+        Category11: 1
+        Category12: 1
+        Category13: 1
+        Category14: 1
+        Category15: 1
+        Category16: 1
+        Category17: 1
+        Category18: 1
+        Category19: 1
+        Category20: 1
+        Category21: 1
+        Category22: 1
+        Category23: 1
+        Category24: 1
+        Category25: 1
+        Category26: 1
+        Category27: 1
+        Category28: 1
+        Category29: 1
+        Category30: 1
+        Category31: 1
+    m_CollidesWithCategories:
+      m_Override: 0
+      m_Value:
+        Category00: 1
+        Category01: 1
+        Category02: 1
+        Category03: 1
+        Category04: 1
+        Category05: 1
+        Category06: 1
+        Category07: 1
+        Category08: 1
+        Category09: 1
+        Category10: 1
+        Category11: 1
+        Category12: 1
+        Category13: 1
+        Category14: 1
+        Category15: 1
+        Category16: 1
+        Category17: 1
+        Category18: 1
+        Category19: 1
+        Category20: 1
+        Category21: 1
+        Category22: 1
+        Category23: 1
+        Category24: 1
+        Category25: 1
+        Category26: 1
+        Category27: 1
+        Category28: 1
+        Category29: 1
+        Category30: 1
+        Category31: 1
+    m_CustomMaterialTags:
+      m_Override: 0
+      m_Value:
+        Tag00: 0
+        Tag01: 0
+        Tag02: 0
+        Tag03: 0
+        Tag04: 0
+        Tag05: 0
+        Tag06: 0
+        Tag07: 0
+    m_SerializedVersion: 1
+  m_SerializedVersion: 1
 --- !u!4 &2607519809288122402 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1430841697005043554, guid: d324de115c4dff845bee7b7f166883c4,
@@ -32315,6 +32623,11 @@ PrefabInstance:
       propertyPath: PositionInConnectedEntity.z
       value: -0.0377565
       objectReference: {fileID: 0}
+    - target: {fileID: 5280816422145240544, guid: e4f4977a30ba2234386e10e3943067b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5898206688620618402, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
       propertyPath: PositionInConnectedEntity.x
@@ -32360,6 +32673,11 @@ PrefabInstance:
       propertyPath: PositionInConnectedEntity.z
       value: 0.0017538443
       objectReference: {fileID: 0}
+    - target: {fileID: 7245460855547649005, guid: e4f4977a30ba2234386e10e3943067b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7414933442782340832, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
       propertyPath: PositionInConnectedEntity.z
@@ -32373,7 +32691,7 @@ PrefabInstance:
     - target: {fileID: 8311088176823498938, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.849
+      value: 8.4
       objectReference: {fileID: 0}
     - target: {fileID: 8311088176823498938, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
@@ -32383,7 +32701,7 @@ PrefabInstance:
     - target: {fileID: 8311088176823498938, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 56.445
+      value: 55.65
       objectReference: {fileID: 0}
     - target: {fileID: 8311088176823498938, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
@@ -33804,11 +34122,210 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8506569617612501138, guid: d324de115c4dff845bee7b7f166883c4,
+        type: 3}
+      propertyPath: m_ShapeType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8506569617612501138, guid: d324de115c4dff845bee7b7f166883c4,
+        type: 3}
+      propertyPath: m_Capsule.Axis
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8506569617612501138, guid: d324de115c4dff845bee7b7f166883c4,
+        type: 3}
+      propertyPath: m_Cylinder.Axis
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8506569617612501138, guid: d324de115c4dff845bee7b7f166883c4,
+        type: 3}
+      propertyPath: m_Capsule.Height
+      value: 9.99998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8506569617612501138, guid: d324de115c4dff845bee7b7f166883c4,
+        type: 3}
+      propertyPath: m_Capsule.Radius
+      value: 3.0000029
+      objectReference: {fileID: 0}
+    - target: {fileID: 8506569617612501138, guid: d324de115c4dff845bee7b7f166883c4,
+        type: 3}
+      propertyPath: m_Cylinder.Height
+      value: 0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 8506569617612501138, guid: d324de115c4dff845bee7b7f166883c4,
+        type: 3}
+      propertyPath: m_PrimitiveSize.x
+      value: 0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 8506569617612501138, guid: d324de115c4dff845bee7b7f166883c4,
+        type: 3}
+      propertyPath: m_PrimitiveCenter.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8506569617612501138, guid: d324de115c4dff845bee7b7f166883c4,
+        type: 3}
+      propertyPath: m_ConvexHullGenerationParameters.m_BevelRadius
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8506569617612501138, guid: d324de115c4dff845bee7b7f166883c4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2647211758135124163, guid: d324de115c4dff845bee7b7f166883c4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3979691901678701466}
   m_SourcePrefab: {fileID: 100100000, guid: d324de115c4dff845bee7b7f166883c4, type: 3}
+--- !u!1 &5045329209792816276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2647211758135124163, guid: d324de115c4dff845bee7b7f166883c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 7113529339772912727}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3979691901678701466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5045329209792816276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b275e5f92732148048d7b77e264ac30e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShapeType: 0
+  m_PrimitiveCenter:
+    x: 0.00000035762787
+    y: 4.000014
+    z: 3.000001
+  m_PrimitiveSize:
+    x: 0.30001336
+    y: 9.999979
+    z: 6.0000067
+  m_PrimitiveOrientation:
+    Value:
+      x: -0
+      y: 0
+      z: 0
+    RotationOrder: 4
+  m_Capsule:
+    Height: 9.999979
+    Radius: 3.0000033
+    Axis: 1
+  m_Cylinder:
+    Height: 0.30001336
+    Radius: 4.9999895
+    Axis: 0
+  m_CylinderSideCount: 20
+  m_SphereRadius: 4.9999895
+  m_MinimumSkinnedVertexWeight: 0.1
+  m_ConvexHullGenerationParameters:
+    m_SimplificationTolerance: 0.1499997
+    m_BevelRadius: 0
+    m_MinimumAngle: 2.5000002
+  m_CustomMesh: {fileID: 0}
+  m_ForceUnique: 0
+  m_Material:
+    m_SupportsTemplate: 1
+    m_Template: {fileID: 11400000, guid: cf3e57d7860e96449b97cbae98bb1ba5, type: 2}
+    m_CollisionResponse:
+      m_Override: 0
+      m_Value: 0
+    m_Friction:
+      m_Override: 0
+      m_Value:
+        Value: 0.5
+        CombineMode: 0
+    m_Restitution:
+      m_Override: 0
+      m_Value:
+        Value: 0
+        CombineMode: 2
+    m_BelongsToCategories:
+      m_Override: 0
+      m_Value:
+        Category00: 1
+        Category01: 1
+        Category02: 1
+        Category03: 1
+        Category04: 1
+        Category05: 1
+        Category06: 1
+        Category07: 1
+        Category08: 1
+        Category09: 1
+        Category10: 1
+        Category11: 1
+        Category12: 1
+        Category13: 1
+        Category14: 1
+        Category15: 1
+        Category16: 1
+        Category17: 1
+        Category18: 1
+        Category19: 1
+        Category20: 1
+        Category21: 1
+        Category22: 1
+        Category23: 1
+        Category24: 1
+        Category25: 1
+        Category26: 1
+        Category27: 1
+        Category28: 1
+        Category29: 1
+        Category30: 1
+        Category31: 1
+    m_CollidesWithCategories:
+      m_Override: 0
+      m_Value:
+        Category00: 1
+        Category01: 1
+        Category02: 1
+        Category03: 1
+        Category04: 1
+        Category05: 1
+        Category06: 1
+        Category07: 1
+        Category08: 1
+        Category09: 1
+        Category10: 1
+        Category11: 1
+        Category12: 1
+        Category13: 1
+        Category14: 1
+        Category15: 1
+        Category16: 1
+        Category17: 1
+        Category18: 1
+        Category19: 1
+        Category20: 1
+        Category21: 1
+        Category22: 1
+        Category23: 1
+        Category24: 1
+        Category25: 1
+        Category26: 1
+        Category27: 1
+        Category28: 1
+        Category29: 1
+        Category30: 1
+        Category31: 1
+    m_CustomMaterialTags:
+      m_Override: 0
+      m_Value:
+        Tag00: 0
+        Tag01: 0
+        Tag02: 0
+        Tag03: 0
+        Tag04: 0
+        Tag05: 0
+        Tag06: 0
+        Tag07: 0
+    m_SerializedVersion: 1
+  m_SerializedVersion: 1
 --- !u!4 &8170387135144573749 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1430841697005043554, guid: d324de115c4dff845bee7b7f166883c4,
@@ -38625,8 +39142,216 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7748243253765183382, guid: 0a65198f3cbcab345bc0b33f23a45e76,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7401783324480360227}
+    - targetCorrespondingSourceObject: {fileID: 7748243253765183382, guid: 0a65198f3cbcab345bc0b33f23a45e76,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4827081294370964707}
   m_SourcePrefab: {fileID: 100100000, guid: 0a65198f3cbcab345bc0b33f23a45e76, type: 3}
+--- !u!1 &1433249363343188859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7748243253765183382, guid: 0a65198f3cbcab345bc0b33f23a45e76,
+    type: 3}
+  m_PrefabInstance: {fileID: 8675241972197078253}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7401783324480360227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433249363343188859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccea9ea98e38942e0b0938c27ed1903e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MotionType: 0
+  m_Smoothing: 0
+  m_Mass: 1
+  m_LinearDamping: 0.01
+  m_AngularDamping: 0.05
+  m_InitialLinearVelocity:
+    x: 0
+    y: 0
+    z: 0
+  m_InitialAngularVelocity:
+    x: 0
+    y: 0
+    z: 0
+  m_GravityFactor: 1
+  m_OverrideDefaultMassDistribution: 0
+  m_CenterOfMass:
+    x: 0
+    y: 0
+    z: 0
+  m_Orientation:
+    Value:
+      x: 0
+      y: 0
+      z: 0
+    RotationOrder: 4
+  m_InertiaTensor:
+    x: 0.4
+    y: 0.4
+    z: 0.4
+  m_WorldIndex: 0
+  m_CustomTags:
+    Tag00: 0
+    Tag01: 0
+    Tag02: 0
+    Tag03: 0
+    Tag04: 0
+    Tag05: 0
+    Tag06: 0
+    Tag07: 0
+--- !u!114 &4827081294370964707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433249363343188859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b275e5f92732148048d7b77e264ac30e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShapeType: 0
+  m_PrimitiveCenter:
+    x: 0.0000014454126
+    y: 4.000015
+    z: 3.0000007
+  m_PrimitiveSize:
+    x: 0.30001414
+    y: 9.999978
+    z: 6.000008
+  m_PrimitiveOrientation:
+    Value:
+      x: -0
+      y: 0
+      z: 0
+    RotationOrder: 4
+  m_Capsule:
+    Height: 9.999978
+    Radius: 3.000004
+    Axis: 1
+  m_Cylinder:
+    Height: 0.30001414
+    Radius: 4.999989
+    Axis: 0
+  m_CylinderSideCount: 20
+  m_SphereRadius: 4.999989
+  m_MinimumSkinnedVertexWeight: 0.1
+  m_ConvexHullGenerationParameters:
+    m_SimplificationTolerance: 0.14999966
+    m_BevelRadius: 0.05
+    m_MinimumAngle: 2.5000002
+  m_CustomMesh: {fileID: 0}
+  m_ForceUnique: 0
+  m_Material:
+    m_SupportsTemplate: 1
+    m_Template: {fileID: 11400000, guid: cf3e57d7860e96449b97cbae98bb1ba5, type: 2}
+    m_CollisionResponse:
+      m_Override: 0
+      m_Value: 0
+    m_Friction:
+      m_Override: 0
+      m_Value:
+        Value: 0.5
+        CombineMode: 0
+    m_Restitution:
+      m_Override: 0
+      m_Value:
+        Value: 0
+        CombineMode: 2
+    m_BelongsToCategories:
+      m_Override: 0
+      m_Value:
+        Category00: 1
+        Category01: 1
+        Category02: 1
+        Category03: 1
+        Category04: 1
+        Category05: 1
+        Category06: 1
+        Category07: 1
+        Category08: 1
+        Category09: 1
+        Category10: 1
+        Category11: 1
+        Category12: 1
+        Category13: 1
+        Category14: 1
+        Category15: 1
+        Category16: 1
+        Category17: 1
+        Category18: 1
+        Category19: 1
+        Category20: 1
+        Category21: 1
+        Category22: 1
+        Category23: 1
+        Category24: 1
+        Category25: 1
+        Category26: 1
+        Category27: 1
+        Category28: 1
+        Category29: 1
+        Category30: 1
+        Category31: 1
+    m_CollidesWithCategories:
+      m_Override: 0
+      m_Value:
+        Category00: 1
+        Category01: 1
+        Category02: 1
+        Category03: 1
+        Category04: 1
+        Category05: 1
+        Category06: 1
+        Category07: 1
+        Category08: 1
+        Category09: 1
+        Category10: 1
+        Category11: 1
+        Category12: 1
+        Category13: 1
+        Category14: 1
+        Category15: 1
+        Category16: 1
+        Category17: 1
+        Category18: 1
+        Category19: 1
+        Category20: 1
+        Category21: 1
+        Category22: 1
+        Category23: 1
+        Category24: 1
+        Category25: 1
+        Category26: 1
+        Category27: 1
+        Category28: 1
+        Category29: 1
+        Category30: 1
+        Category31: 1
+    m_CustomMaterialTags:
+      m_Override: 0
+      m_Value:
+        Tag00: 0
+        Tag01: 0
+        Tag02: 0
+        Tag03: 0
+        Tag04: 0
+        Tag05: 0
+        Tag06: 0
+        Tag07: 0
+    m_SerializedVersion: 1
+  m_SerializedVersion: 1
 --- !u!4 &1433249363343687513 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7748243253764950964, guid: 0a65198f3cbcab345bc0b33f23a45e76,
@@ -38725,6 +39450,66 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2927016403731505760}
     m_Modifications:
+    - target: {fileID: -4348692179191930995, guid: 0a65198f3cbcab345bc0b33f23a45e76,
+        type: 3}
+      propertyPath: m_ShapeType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4348692179191930995, guid: 0a65198f3cbcab345bc0b33f23a45e76,
+        type: 3}
+      propertyPath: m_Capsule.Axis
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4348692179191930995, guid: 0a65198f3cbcab345bc0b33f23a45e76,
+        type: 3}
+      propertyPath: m_SphereRadius
+      value: 4.94
+      objectReference: {fileID: 0}
+    - target: {fileID: -4348692179191930995, guid: 0a65198f3cbcab345bc0b33f23a45e76,
+        type: 3}
+      propertyPath: m_Cylinder.Axis
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4348692179191930995, guid: 0a65198f3cbcab345bc0b33f23a45e76,
+        type: 3}
+      propertyPath: m_Capsule.Height
+      value: 9.88
+      objectReference: {fileID: 0}
+    - target: {fileID: -4348692179191930995, guid: 0a65198f3cbcab345bc0b33f23a45e76,
+        type: 3}
+      propertyPath: m_Capsule.Radius
+      value: 3.0000043
+      objectReference: {fileID: 0}
+    - target: {fileID: -4348692179191930995, guid: 0a65198f3cbcab345bc0b33f23a45e76,
+        type: 3}
+      propertyPath: m_Cylinder.Height
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: -4348692179191930995, guid: 0a65198f3cbcab345bc0b33f23a45e76,
+        type: 3}
+      propertyPath: m_Cylinder.Radius
+      value: 4.94
+      objectReference: {fileID: 0}
+    - target: {fileID: -4348692179191930995, guid: 0a65198f3cbcab345bc0b33f23a45e76,
+        type: 3}
+      propertyPath: m_PrimitiveSize.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: -4348692179191930995, guid: 0a65198f3cbcab345bc0b33f23a45e76,
+        type: 3}
+      propertyPath: m_PrimitiveSize.y
+      value: 9.88
+      objectReference: {fileID: 0}
+    - target: {fileID: -4348692179191930995, guid: 0a65198f3cbcab345bc0b33f23a45e76,
+        type: 3}
+      propertyPath: m_PrimitiveCenter.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4348692179191930995, guid: 0a65198f3cbcab345bc0b33f23a45e76,
+        type: 3}
+      propertyPath: m_ConvexHullGenerationParameters.m_BevelRadius
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7748243253764950964, guid: 0a65198f3cbcab345bc0b33f23a45e76,
         type: 3}
       propertyPath: m_RootOrder

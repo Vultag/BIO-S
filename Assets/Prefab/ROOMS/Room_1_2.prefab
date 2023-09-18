@@ -27529,7 +27529,7 @@ MonoBehaviour:
     z: -0.395
   m_PrimitiveSize:
     x: 1.585
-    y: 0.16
+    y: 0.4
     z: 0.84
   m_PrimitiveOrientation:
     Value:
@@ -36029,7 +36029,7 @@ MonoBehaviour:
     z: -0.395
   m_PrimitiveSize:
     x: 1.585
-    y: 0.16
+    y: 0.4
     z: 0.84
   m_PrimitiveOrientation:
     Value:
@@ -37084,6 +37084,11 @@ PrefabInstance:
       propertyPath: PerpendicularAxisInConnectedEntity.z
       value: -0.00067609776
       objectReference: {fileID: 0}
+    - target: {fileID: 5280816422145240544, guid: e4f4977a30ba2234386e10e3943067b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5898206688620618402, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
       propertyPath: PositionInConnectedEntity.x
@@ -37188,6 +37193,11 @@ PrefabInstance:
         type: 3}
       propertyPath: PerpendicularAxisInConnectedEntity.y
       value: 1.0587912e-22
+      objectReference: {fileID: 0}
+    - target: {fileID: 7245460855547649005, guid: e4f4977a30ba2234386e10e3943067b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7414933442782340832, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
@@ -37613,6 +37623,11 @@ PrefabInstance:
       propertyPath: PerpendicularAxisInConnectedEntity.z
       value: -0.00067597855
       objectReference: {fileID: 0}
+    - target: {fileID: 5280816422145240544, guid: e4f4977a30ba2234386e10e3943067b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5898206688620618402, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
       propertyPath: PositionInConnectedEntity.x
@@ -37722,6 +37737,11 @@ PrefabInstance:
         type: 3}
       propertyPath: PerpendicularAxisInConnectedEntity.y
       value: 5.4263053e-22
+      objectReference: {fileID: 0}
+    - target: {fileID: 7245460855547649005, guid: e4f4977a30ba2234386e10e3943067b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7414933442782340832, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
@@ -38156,6 +38176,11 @@ PrefabInstance:
       propertyPath: PositionInConnectedEntity.z
       value: -0.0377565
       objectReference: {fileID: 0}
+    - target: {fileID: 5280816422145240544, guid: e4f4977a30ba2234386e10e3943067b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5898206688620618402, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
       propertyPath: PositionInConnectedEntity.x
@@ -38230,6 +38255,11 @@ PrefabInstance:
         type: 3}
       propertyPath: PerpendicularAxisInConnectedEntity.x
       value: 3.2443655e-30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7245460855547649005, guid: e4f4977a30ba2234386e10e3943067b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7414933442782340832, guid: e4f4977a30ba2234386e10e3943067b1,
         type: 3}
@@ -38369,6 +38399,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932947007944549630, guid: 3b81f72db25d4a74c81c910a932eda46,
+        type: 3}
+      propertyPath: TargetSpeed
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932947007944549630, guid: 3b81f72db25d4a74c81c910a932eda46,
+        type: 3}
+      propertyPath: MaxImpulseAppliedByMotor
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6120227460357891727, guid: 3b81f72db25d4a74c81c910a932eda46,
         type: 3}

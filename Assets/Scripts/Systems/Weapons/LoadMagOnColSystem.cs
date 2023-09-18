@@ -339,7 +339,7 @@ public partial class LoadMagOnColSystem : SystemBase
 
                     }
                     break;
-                case 20: //Skorpion
+                case 25: //Skorpion
 
 
 
